@@ -1,0 +1,6 @@
+devel_space: /home/ubuntu/devel
+install: false
+install_space: /home/ubuntu/install
+profile: default
+source_space: /home/ubuntu/src
+workspace: /home/ubuntu

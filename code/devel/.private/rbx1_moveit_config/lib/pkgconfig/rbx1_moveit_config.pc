@@ -1,0 +1,8 @@
+prefix=/home/ubuntu/devel/.private/rbx1_moveit_config
+
+Name: rbx1_moveit_config
+Description: Description of rbx1_moveit_config
+Version: 0.3.0
+Cflags: 
+Libs: -L/home/ubuntu/devel/.private/rbx1_moveit_config/lib 
+Requires: 

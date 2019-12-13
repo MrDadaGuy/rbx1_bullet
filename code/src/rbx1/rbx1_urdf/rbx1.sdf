@@ -1,0 +1,663 @@
+<sdf version='1.6'>
+  <model name='rbx1_urdf'>
+    <link name='base_footprint'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0.0309 0 -0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.03</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.03</iyy>
+          <iyz>0</iyz>
+          <izz>0.03</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+        <pose frame=''>0 0 0.0309 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_footprint_fixed_joint_lump__base_link_visual'>
+        <pose frame=''>0 0 0.0309 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='Link_1'>
+      <pose frame=''>0 0 0.0618 -1.5708 0 1.5708</pose>
+      <inertial>
+        <pose frame=''>9e-05 -0.118359 -1e-05 0 -0 0</pose>
+        <mass>1.5987</mass>
+        <inertia>
+          <ixx>0.00889559</ixx>
+          <ixy>-9.8306e-06</ixy>
+          <ixz>-1.11291e-07</ixz>
+          <iyy>0.00628978</iyy>
+          <iyz>2.53378e-10</iyz>
+          <izz>0.0104429</izz>
+        </inertia>
+      </inertial>
+      <collision name='Link_1_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Link_1_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Joint_1' type='revolute'>
+      <child>Link_1</child>
+      <parent>base_footprint</parent>
+      <axis>
+        <xyz>-4e-06 -0 1</xyz>
+        <limit>
+          <lower>-2.0944</lower>
+          <upper>2.0944</upper>
+          <effort>0</effort>
+          <velocity>0.2</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Link_2'>
+      <pose frame=''>-1e-06 -0 0.26281 3.3e-05 1.45888 -3.14156</pose>
+      <inertial>
+        <pose frame=''>-0.075247 -0.0005 0.008016 0 -0 0</pose>
+        <mass>1.79158</mass>
+        <inertia>
+          <ixx>0.00352142</ixx>
+          <ixy>-6.44382e-05</ixy>
+          <ixz>0.00133901</ixz>
+          <iyy>0.0155847</iyy>
+          <iyz>6.30278e-06</iyz>
+          <izz>0.0160835</izz>
+        </inertia>
+      </inertial>
+      <collision name='Link_2_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Link_2_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Joint_2' type='revolute'>
+      <child>Link_2</child>
+      <parent>Link_1</parent>
+      <axis>
+        <xyz>-4e-06 1 -4e-06</xyz>
+        <limit>
+          <lower>-2.2</lower>
+          <upper>2.2</upper>
+          <effort>0</effort>
+          <velocity>0.2</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Link_3'>
+      <pose frame=''>0.001358 1e-06 0.483932 2.3e-05 0.67381 -0.001911</pose>
+      <inertial>
+        <pose frame=''>-0.023524 -0.000262 0.029334 0 -0 0</pose>
+        <mass>0.657902</mass>
+        <inertia>
+          <ixx>0.00143524</ixx>
+          <ixy>5.67209e-06</ixy>
+          <ixz>0.000616953</ixz>
+          <iyy>0.00196413</iyy>
+          <iyz>-7.12193e-06</iyz>
+          <izz>0.00115362</izz>
+        </inertia>
+      </inertial>
+      <collision name='Link_3_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Link_3_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_3.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Joint_3' type='revolute'>
+      <child>Link_3</child>
+      <parent>Link_2</parent>
+      <axis>
+        <xyz>0.001925 0.999998 1.8e-05</xyz>
+        <limit>
+          <lower>-2.0944</lower>
+          <upper>2.0944</upper>
+          <effort>0</effort>
+          <velocity>0.2</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Link_4'>
+      <pose frame=''>0.001368 -0.000472 0.55303 -1.57093 4.1e-05 -1.33882</pose>
+      <inertial>
+        <pose frame=''>-0.000481 -0.112984 -0.000795 0 -0 0</pose>
+        <mass>0.262001</mass>
+        <inertia>
+          <ixx>0.000528509</ixx>
+          <ixy>5.9738e-06</ixy>
+          <ixz>1.89931e-05</ixz>
+          <iyy>0.000284758</iyy>
+          <iyz>8.46523e-06</iyz>
+          <izz>0.000602186</izz>
+        </inertia>
+      </inertial>
+      <collision name='Link_4_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_4.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Link_4_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_4.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Joint_4' type='revolute'>
+      <child>Link_4</child>
+      <parent>Link_3</parent>
+      <axis>
+        <xyz>0.000144 -8e-06 1</xyz>
+        <limit>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+          <effort>0</effort>
+          <velocity>0.2</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Link_5'>
+      <pose frame=''>0.00139 -0.000473 0.71003 3.14153 0.001133 3.13898</pose>
+      <inertial>
+        <pose frame=''>0.000359 0.000462 0.001207 0 -0 0</pose>
+        <mass>0.12998</mass>
+        <inertia>
+          <ixx>6.97994e-05</ixx>
+          <ixy>-5.95275e-08</ixy>
+          <ixz>7.69507e-07</ixz>
+          <iyy>8.403e-05</iyy>
+          <iyz>7.64485e-07</iyz>
+          <izz>7.06003e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Link_5_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_5.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Link_5_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_5.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Joint_5' type='revolute'>
+      <child>Link_5</child>
+      <parent>Link_4</parent>
+      <axis>
+        <xyz>0.002617 0.999997 6.2e-05</xyz>
+        <limit>
+          <lower>-2.00713</lower>
+          <upper>2.00713</upper>
+          <effort>0</effort>
+          <velocity>0.2</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Link_6'>
+      <pose frame=''>0.001379 -0.000474 0.71953 1.56966 -6e-05 1.56978</pose>
+      <inertial>
+        <pose frame=''>-0.000362 0.049493 -0.000531 0 -0 0</pose>
+        <mass>0.034113</mass>
+        <inertia>
+          <ixx>1.14965e-05</ixx>
+          <ixy>9.42694e-08</ixy>
+          <ixz>2.22294e-08</ixz>
+          <iyy>1.14156e-05</iyy>
+          <iyz>1.58507e-07</iyz>
+          <izz>1.70865e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Link_6_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_6.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='Link_6_fixed_joint_lump__Link_Gripper_collision_1'>
+        <pose frame=''>-0.014852 0.004829 0.020232 -1.5708 0.000305 0.000305</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Gripper.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Link_6_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_6.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='Link_6_fixed_joint_lump__Link_Gripper_visual_1'>
+        <pose frame=''>-0.014852 0.004829 0.020232 -1.5708 0.000305 0.000305</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Gripper.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Joint_6' type='revolute'>
+      <child>Link_6</child>
+      <parent>Link_5</parent>
+      <axis>
+        <xyz>-0.001136 -5.9e-05 0.999999</xyz>
+        <limit>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+          <effort>0</effort>
+          <velocity>0.2</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Link_Grip_Idle'>
+      <pose frame=''>0.003804 -0.014492 0.776527 3.12022 1.51762 1.54873</pose>
+      <inertial>
+        <pose frame=''>-0.006348 -0.002984 0.000395 0 -0 0</pose>
+        <mass>0.00498016</mass>
+        <inertia>
+          <ixx>2.25142e-07</ixx>
+          <ixy>-5.10673e-10</ixy>
+          <ixz>-1.89203e-08</ixz>
+          <iyy>1.13584e-06</iyy>
+          <iyz>3.16055e-11</iyz>
+          <izz>9.40852e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name='Link_Grip_Idle_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Grip_Idle.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Link_Grip_Idle_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Grip_Idle.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Joint_Grip_Idle' type='revolute'>
+      <child>Link_Grip_Idle</child>
+      <parent>Link_6</parent>
+      <axis>
+        <xyz>0.999999 -0.000723 0.001136</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Link_Tip_Idle'>
+      <pose frame=''>0.006807 -0.01662 0.81647 -0.001143 -0.000365 1.57007</pose>
+      <inertial>
+        <pose frame=''>0.006957 0.005808 0.027935 0 -0 0</pose>
+        <mass>0.0104818</mass>
+        <inertia>
+          <ixx>4.07982e-06</ixx>
+          <ixy>2.73247e-10</ixy>
+          <ixz>-6.23773e-07</ixz>
+          <iyy>4.01359e-06</iyy>
+          <iyz>1.42085e-09</iyz>
+          <izz>5.60366e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name='Link_Tip_Idle_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Tip_Idle.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Link_Tip_Idle_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Tip_Idle.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Joint_Tip_Idle' type='revolute'>
+      <child>Link_Tip_Idle</child>
+      <parent>Link_Grip_Idle</parent>
+      <axis>
+        <xyz>0.999999 -0.000723 0.001143</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Link_Grip_Idle_Arm'>
+      <pose frame=''>0.007587 -0.00749 0.79653 -0.001136 -0.000365 1.57008</pose>
+      <inertial>
+        <pose frame=''>-0.000993 0.006758 0.018772 0 -0 0</pose>
+        <mass>0.0017399</mass>
+        <inertia>
+          <ixx>3.42751e-07</ixx>
+          <ixy>7.28737e-11</ixy>
+          <ixz>1.75464e-08</ixz>
+          <iyy>3.43299e-07</iyy>
+          <iyz>-1.37111e-09</iyz>
+          <izz>1.2614e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='Link_Grip_Idle_Arm_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Grip_Idle_Arm.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Link_Grip_Idle_Arm_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Grip_Idle_Arm.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Joint_Grip_Idle_Arm' type='revolute'>
+      <child>Link_Grip_Idle_Arm</child>
+      <parent>Link_6</parent>
+      <axis>
+        <xyz>0.999999 -0.000715 0.001136</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Link_Grip_Servo'>
+      <pose frame=''>0.006824 0.013489 0.776524 -0.001149 0.146681 1.56991</pose>
+      <inertial>
+        <pose frame=''>-0.000594 0.005984 0.006315 0 -0 0</pose>
+        <mass>0.00497129</mass>
+        <inertia>
+          <ixx>9.2087e-07</ixx>
+          <ixy>4.69155e-11</ixy>
+          <ixz>1.2612e-07</ixz>
+          <iyy>1.14025e-06</iyy>
+          <iyz>-5.07455e-10</iyz>
+          <izz>2.49489e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name='Link_Grip_Servo_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Grip_Servo.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Link_Grip_Servo_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Grip_Servo.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Joint_Grip_Servo' type='revolute'>
+      <child>Link_Grip_Servo</child>
+      <parent>Link_6</parent>
+      <axis>
+        <xyz>0.999999 -0.000715 0.001136</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Link_Tip_Servo'>
+      <pose frame=''>0.006829 0.013224 0.816515 -0.001136 -0.000365 1.57008</pose>
+      <inertial>
+        <pose frame=''>-0.006874 0.005808 0.027959 0 -0 0</pose>
+        <mass>0.0104818</mass>
+        <inertia>
+          <ixx>4.08347e-06</ixx>
+          <ixy>-2.81245e-10</ixy>
+          <ixz>6.13524e-07</ixz>
+          <iyy>4.01364e-06</iyy>
+          <iyz>1.44852e-09</iyz>
+          <izz>5.56767e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name='Link_Tip_Servo_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Tip_Servo.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Link_Tip_Servo_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Tip_Servo.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Joint_Tip_Servo' type='revolute'>
+      <child>Link_Tip_Servo</child>
+      <parent>Link_Grip_Servo</parent>
+      <axis>
+        <xyz>0.999999 -0.000715 0.001136</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Link_Grip_Servo_Arm'>
+      <pose frame=''>0.007597 0.006505 0.796536 -0.001136 -0.000365 1.57008</pose>
+      <inertial>
+        <pose frame=''>-0.000103 0.006758 0.018798 0 -0 0</pose>
+        <mass>0.0017399</mass>
+        <inertia>
+          <ixx>3.4367e-07</ixx>
+          <ixy>7.9027e-12</ixy>
+          <ixz>1.86121e-09</ixz>
+          <iyy>3.43299e-07</iyy>
+          <iyz>-1.37302e-09</iyz>
+          <izz>1.16945e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='Link_Grip_Servo_Arm_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Grip_Servo_Arm.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Link_Grip_Servo_Arm_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbx1_urdf/meshes/Link_Grip_Servo_Arm.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Joint_Grip_Servo_Arm' type='revolute'>
+      <child>Link_Grip_Servo_Arm</child>
+      <parent>Link_6</parent>
+      <axis>
+        <xyz>0.999999 -0.000715 0.001136</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <static>0</static>
+    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+      <robotNamespace>/rbx1_urdf</robotNamespace>
+    </plugin>
+  </model>
+</sdf>

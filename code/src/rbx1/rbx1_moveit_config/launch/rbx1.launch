@@ -1,0 +1,15 @@
+<launch>
+
+    <!-- Whether to use Unity (fake) or real robot (my custom action servers) -->
+    <arg name="fake" default="true" />
+
+    <include file="$(find rbx1_urdf)/launch/publish-description-rbx1.launch"/>
+
+    <node name="rbx1_arm_controller" pkg="rbx1_driver" type="rbx1_arm_action_server.py" respawn="true" output="screen" unless="$(arg fake)" />
+    <node name="rbx1_grip_controller" pkg="rbx1_driver" type="rbx1_grip_action_server.py" respawn="true" output="screen" unless="$(arg fake)" />
+
+    <include file="$(find rbx1_moveit_config)/launch/demo.launch" >
+        <arg name="fake" value="$(arg fake)"/>
+    </include>
+
+</launch>

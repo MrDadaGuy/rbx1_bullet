@@ -1,0 +1,16 @@
+image: yen3/ubuntu-novnc:latest
+manifests:
+  - image: yen3/ubuntu-novnc:amd64
+    platform:
+      architecture: amd64
+      os: linux
+  - image: yen3/ubuntu-novnc:arm64
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8
+  - image: yen3/ubuntu-novnc:arm32v7
+    platform:
+      architecture: arm
+      os: linux
+      variant: v7

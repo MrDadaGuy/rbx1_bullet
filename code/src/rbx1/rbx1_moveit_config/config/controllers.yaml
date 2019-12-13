@@ -1,0 +1,27 @@
+ros_controller_namespace: /TIM_WTF
+controller_list:
+ - name: rbx1_arm_controller
+   action_ns: follow_joint_trajectory
+   type: FollowJointTrajectory
+   default: true
+   joints:
+     - Joint_1
+     - Joint_2
+     - Joint_3
+     - Joint_4
+     - Joint_5
+     - Joint_6
+ - name: rbx1_grip_controller
+#   action_ns: gripper_action
+#   type: GripperCommand
+   action_ns: follow_joint_trajectory
+   type: FollowJointTrajectory
+   default: true
+#   parallel: true
+   joints:
+     - Joint_Grip_Servo
+    #  - Joint_Tip_Servo
+    #  - Joint_Grip_Servo_Arm
+    #  - Joint_Grip_Idle
+    #  - Joint_Tip_Idle
+    #  - Joint_Grip_Idle_Arm

@@ -1,0 +1,12 @@
+Flask
+Flask-Login
+Jinja2
+MarkupSafe
+Werkzeug
+argparse
+backports.ssl-match-hostname
+itsdangerous
+peewee
+requests
+six
+

@@ -1,0 +1,368 @@
+** Message: 16:17:40.600: environement.vala:58: Exporting primary_variable
+** Message: 16:17:40.600: environement.vala:59: desktop_environnement XDG_CURRENT_DESKTOP
+** Message: 16:17:40.600: environement.vala:150: confir_dirs is null, export : /etc/xdg
+** Message: 16:17:40.600: environement.vala:184: Exporting XDG_CONFIG_DIRS
+** Message: 16:17:40.600: environement.vala:191: data_dirs is null, export : /usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg
+** Message: 16:17:40.600: environement.vala:225: Exporting XDG_DATA_DIRS
+** Message: 16:17:40.600: utils.vala:68: User config used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 16:17:40.600: utils.vala:89: Final file used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “iGtk/ColorScheme” in group “GTK”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “windows_manager/extras” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “panel/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “dock/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “file_manager/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “desktop_manager/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “launcher_manager/autostart” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “composite_manager/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “im1/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “im2/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “widget1/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “notification/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “keybindings/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “im_manager/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “screensaver/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “power_manager/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “audio_manager/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “workspace_manager/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “screenshot_manager/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “message_manager/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “upgrade_manager/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “updates_manager/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “updates_manager/timeout” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “crash_manager/command” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “crash_manager/dev_mode” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “crash_manager/timeout” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “upstart_user_session” in group “Session”
+** Message: 16:17:40.600: settings.vala:540: Key file does not have key “proxy_manager/http” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “a11y/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “xrandr/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “network_gui/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “webbrowser/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “email/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “pdf_reader/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “video_player/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “audio_player/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “images_display/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “text_editor/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “archive/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “charmap/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “calculator/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “spreadsheet/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “bittorent/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “document/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “webcam/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “burn/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “notes/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “disk_utility/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “tasks/command” in group “Session”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have group “Keymap”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “laptop_mode” in group “State”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “gnome” in group “Dbus”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “type” in group “Environment”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “ubuntu_menuproxy” in group “Environment”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “toolkit_integration” in group “Environment”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “gtk/overlay_scrollbar_disable” in group “Environment”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “qt/force_theme” in group “Environment”
+** Message: 16:17:40.601: settings.vala:540: Key file does not have key “qt/platform” in group “Environment”
+** Message: 16:17:40.601: settings.vala:462: Monitoring: /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 16:17:40.601: settings.vala:466: Desktop file is already in config home, do nothing
+** Message: 16:17:40.601: environement.vala:79: Exporting variable
+** Message: 16:17:40.601: environement.vala:80: desktop_environnement XDG_CURRENT_DESKTOP
+** Message: 16:17:40.601: environement.vala:177: custom_config :
+** Message: 16:17:40.601: environement.vala:178: config_dirs :/etc/xdg
+** Message: 16:17:40.601: environement.vala:179: confir_dirs not null, export : /etc/xdg
+** Message: 16:17:40.601: environement.vala:184: Exporting XDG_CONFIG_DIRS
+** Message: 16:17:40.601: environement.vala:218: custom_data :
+** Message: 16:17:40.601: environement.vala:219: data_dirs :/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg
+** Message: 16:17:40.601: environement.vala:220: data_dirs not null, export : /usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg
+** Message: 16:17:40.601: environement.vala:225: Exporting XDG_DATA_DIRS
+** Message: 16:17:40.601: utils.vala:68: User config used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 16:17:40.601: utils.vala:89: Final file used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 16:17:40.601: environement.vala:254: No entry in [Environment_variable]. Key file does not have group “Environment_variable”
+
+** (lxsession:77): WARNING **: 16:17:40.603: process.vala:49: Failed to execute child process “xprop” (No such file or directory)
+
+** (lxsession:77): WARNING **: 16:17:40.603: process.vala:50: Error when launching xprop
+
+** (lxsession:77): WARNING **: 16:17:40.604: process.vala:49: Failed to execute child process “dbus-launch” (No such file or directory)
+
+** (lxsession:77): WARNING **: 16:17:40.604: process.vala:50: Error when launching dbus-launch
+** Message: 16:17:40.604: utils.vala:79: Config system location : /etc/xdg/lxsession/LXDE
+** Message: 16:17:40.604: utils.vala:85: System system path location : /etc/xdg/lxsession/LXDE/conffiles.conf
+** Message: 16:17:40.604: utils.vala:89: Final file used : /etc/xdg/lxsession/LXDE/conffiles.conf
+** Message: 16:17:40.604: options.vala:164: Activate xsettings_manager build-in
+** Message: 16:17:40.604: utils.vala:68: User config used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 16:17:40.604: utils.vala:89: Final file used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 16:17:40.609: app.vala:721: polkit separate
+** Message: 16:17:40.609: app.vala:721: polkit separate
+** Message: 16:17:40.610: app.vala:76: Launching lxpolkit 
+** Message: 16:17:40.610: utils.vala:68: User config used : /home/ubuntu/.config/lxsession/LXDE/autostart
+** Message: 16:17:40.610: utils.vala:89: Final file used : /home/ubuntu/.config/lxsession/LXDE/autostart
+** Message: 16:17:40.610: autostart.vala:42: Autostart path : /home/ubuntu/.config/lxsession/LXDE/autostart
+** Message: 16:17:40.613: app.vala:76: Launching lxpanel 
+** Message: 16:17:40.615: app.vala:76: Launching pcmanfm 
+
+** (lxsession:77): WARNING **: 16:17:40.616: app.vala:86: Failed to execute child process “xscreensaver” (No such file or directory)
+
+** (lxsession:77): WARNING **: 16:17:40.616: app.vala:87: Error when launching xscreensaver
+** Message: 16:17:40.618: options.vala:107: Create build-in Clipboard
+** Message: 16:17:40.619: main.vala:442: Check keymap_mode (null)
+** Message: 16:17:40.621: app.vala:76: Launching /usr/bin/ssh-agent 
+SSH_AUTH_SOCK=/tmp/ssh-ywrzOvaL2hOa/agent.125; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=129; export SSH_AGENT_PID;
+echo Agent pid 129;
+
+** (lxsession:77): WARNING **: 16:17:40.625: main.vala:506: Could not acquire name
+
+** Message: 16:17:40.625: app.vala:130: /usr/bin/ssh-agent exit with this type of exit: 0
+** Message: 16:17:40.627: main.vala:41: lxpolkit is already running. Existing
+** Message: 16:17:40.628: app.vala:130: lxpolkit exit with this type of exit: 0
+** Message: 16:17:40.628: app.vala:139: Exit normal, don't reload
+** Message: 16:17:40.632: x-terminal-emulator has very limited support, consider choose another terminal
+** Message: 16:17:40.633: x-terminal-emulator has very limited support, consider choose another terminal
+
+** (lxpanel:120): WARNING **: 16:17:40.639: The directory '~/Templates' doesn't exist, ignoring it
+
+** (pcmanfm:121): WARNING **: 16:17:40.640: The directory '~/Templates' doesn't exist, ignoring it
+
+(light-locker:128): dconf-WARNING **: 16:17:40.641: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+(light-locker:128): dconf-WARNING **: 16:17:40.641: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+(light-locker:128): dconf-WARNING **: 16:17:40.642: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+(light-locker:128): dconf-WARNING **: 16:17:40.642: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+(light-locker:128): dconf-WARNING **: 16:17:40.642: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+Openbox-Message: Unable to find a valid menu file "/var/lib/openbox/debian-menu.xml"
+
+** (lxpanel:120): WARNING **: 16:17:40.664: lxpanel: can't load volume plugin
+
+(light-locker:128): dconf-WARNING **: 16:17:40.683: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+(light-locker:128): dconf-WARNING **: 16:17:40.684: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+(light-locker:128): dconf-WARNING **: 16:17:40.684: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+(light-locker:128): dconf-WARNING **: 16:17:40.684: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+(light-locker:128): dconf-WARNING **: 16:17:40.684: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+** (light-locker:128): WARNING **: 16:17:40.715: failed to register with the message bus
+lxterminal
+
+(lxterminal:182): Vte-WARNING **: 16:18:28.186: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(lxterminal:182): Vte-WARNING **: 16:18:28.186: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(lxpanel:120): Wnck-WARNING **: 16:18:28.223: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 16:27:19.091: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 16:27:40.143: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 17:08:25.571: Unhandled action type _OB_WM_ACTION_UNDECORATE
+leafpad '/home/ubuntu/Desktop/robot.txt' 
+
+(lxpanel:120): Wnck-WARNING **: 17:08:32.618: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 17:08:38.480: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 17:37:45.924: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(leafpad:1514): Gtk-WARNING **: 17:37:48.596: Attempting to store changes into `/home/ubuntu/.local/share/recently-used.xbel', but failed: Failed to create file “/home/ubuntu/.local/share/recently-used.xbel.41U0C0”: No such file or directory
+
+(leafpad:1514): Gtk-WARNING **: 17:37:48.596: Attempting to set the permissions of `/home/ubuntu/.local/share/recently-used.xbel', but failed: No such file or directory
+
+(lxpanel:120): Wnck-WARNING **: 17:37:48.619: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 17:37:49.882: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 17:42:43.556: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(leafpad:1514): Gtk-WARNING **: 17:42:45.671: Attempting to store changes into `/home/ubuntu/.local/share/recently-used.xbel', but failed: Failed to create file “/home/ubuntu/.local/share/recently-used.xbel.H91YC0”: No such file or directory
+
+(leafpad:1514): Gtk-WARNING **: 17:42:45.671: Attempting to set the permissions of `/home/ubuntu/.local/share/recently-used.xbel', but failed: No such file or directory
+
+(lxpanel:120): Wnck-WARNING **: 17:42:45.680: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 17:42:47.731: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 17:54:39.585: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:01:29.915: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:02:09.368: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:32:36.674: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:47:16.105: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:48:23.401: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:49:33.983: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:50:59.126: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:52:32.096: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:53:28.177: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:55:25.407: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:55:25.423: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:55:28.064: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:57:48.440: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:57:48.457: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:57:51.208: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxterminal:182): Vte-WARNING **: 18:58:16.790: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(lxterminal:182): Vte-WARNING **: 18:58:16.790: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(lxpanel:120): Wnck-WARNING **: 18:58:16.812: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:58:16.831: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:58:59.949: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:59:00.066: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:59:00.917: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 18:59:02.314: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:06:32.110: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:07:07.706: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:07:28.867: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:09:21.705: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:09:46.007: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:10:29.031: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:10:56.992: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:10:57.090: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:10:57.244: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:10:57.377: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:10:58.087: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:10:59.599: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:11:56.153: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:11:56.482: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:10.418: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:10.515: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:10.671: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:10.802: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:11.620: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:12.991: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:16.942: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:17.485: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:20.945: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:21.140: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:21.140: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:21.503: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:23.031: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:23.361: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:35.580: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:35.714: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:36.633: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:37.857: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:52.209: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:53.407: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:53.407: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:54.658: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:58.072: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:59.326: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:12:59.519: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:13:00.807: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:15:10.803: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:15:37.522: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:15:48.354: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(leafpad:4511): Gtk-WARNING **: 20:16:01.190: Attempting to store changes into `/home/ubuntu/.local/share/recently-used.xbel', but failed: Failed to create file “/home/ubuntu/.local/share/recently-used.xbel.SR6MC0”: No such file or directory
+
+(leafpad:4511): Gtk-WARNING **: 20:16:01.190: Attempting to set the permissions of `/home/ubuntu/.local/share/recently-used.xbel', but failed: No such file or directory
+
+(lxpanel:120): Wnck-WARNING **: 20:17:58.786: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:18:25.709: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:18:45.268: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:19:01.224: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:19:01.321: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:19:01.422: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:19:02.713: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:19:08.018: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:19:08.111: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:19:08.256: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:19:08.401: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:19:09.308: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:19:10.586: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(leafpad:1514): Gtk-WARNING **: 20:20:06.405: Attempting to store changes into `/home/ubuntu/.local/share/recently-used.xbel', but failed: Failed to create file “/home/ubuntu/.local/share/recently-used.xbel.OPVTC0”: No such file or directory
+
+(leafpad:1514): Gtk-WARNING **: 20:20:06.405: Attempting to set the permissions of `/home/ubuntu/.local/share/recently-used.xbel', but failed: No such file or directory
+
+(leafpad:4511): Gtk-WARNING **: 20:20:13.733: Attempting to store changes into `/home/ubuntu/.local/share/recently-used.xbel', but failed: Failed to create file “/home/ubuntu/.local/share/recently-used.xbel.UH3XC0”: No such file or directory
+
+(leafpad:4511): Gtk-WARNING **: 20:20:13.733: Attempting to set the permissions of `/home/ubuntu/.local/share/recently-used.xbel', but failed: No such file or directory
+
+(lxpanel:120): Wnck-WARNING **: 20:22:35.302: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(lxpanel:120): Wnck-WARNING **: 20:22:35.320: Unhandled action type _OB_WM_ACTION_UNDECORATE
+lxpanel: Fatal IO error 0 (Success) on X server :1.
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":1"
+      after 176983 requests (176983 known processed) with 0 events remaining.

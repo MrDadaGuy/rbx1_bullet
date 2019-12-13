@@ -1,0 +1,26 @@
+controller_list:
+  - name: fake_gripper_controller
+    type: last point    # interpolate | via points | 
+    joints:
+     - Joint_Grip_Servo
+     - Joint_Tip_Servo
+     - Joint_Grip_Servo_Arm
+     - Joint_Grip_Idle
+     - Joint_Tip_Idle
+     - Joint_Grip_Idle_Arm
+    # gains:
+    #   Joint_Grip_Servo:
+    #     p: 100
+    #     d: 1
+    #     i: 1
+    #     i_clamp: 1
+    #
+  - name: fake_arm_controller
+    type: last point    # interpolate | via points | 
+    joints:
+      - Joint_1
+      - Joint_2
+      - Joint_3
+      - Joint_4
+      - Joint_5
+      - Joint_6
