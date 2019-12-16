@@ -1,209 +1,155 @@
-** Message: 02:51:38.795: environement.vala:58: Exporting primary_variable
-** Message: 02:51:38.795: environement.vala:59: desktop_environnement XDG_CURRENT_DESKTOP
-** Message: 02:51:38.795: environement.vala:150: confir_dirs is null, export : /etc/xdg
-** Message: 02:51:38.795: environement.vala:184: Exporting XDG_CONFIG_DIRS
-** Message: 02:51:38.795: environement.vala:191: data_dirs is null, export : /usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg
-** Message: 02:51:38.795: environement.vala:225: Exporting XDG_DATA_DIRS
-** Message: 02:51:38.795: utils.vala:68: User config used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
-** Message: 02:51:38.795: utils.vala:89: Final file used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “iGtk/ColorScheme” in group “GTK”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “windows_manager/extras” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “panel/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “dock/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “file_manager/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “desktop_manager/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “launcher_manager/autostart” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “composite_manager/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “im1/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “im2/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “widget1/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “notification/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “keybindings/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “im_manager/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “screensaver/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “power_manager/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “audio_manager/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “workspace_manager/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “screenshot_manager/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “message_manager/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “upgrade_manager/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “updates_manager/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “updates_manager/timeout” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “crash_manager/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “crash_manager/dev_mode” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “crash_manager/timeout” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “upstart_user_session” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “proxy_manager/http” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “a11y/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “xrandr/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “network_gui/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “webbrowser/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “email/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “pdf_reader/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “video_player/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “audio_player/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “images_display/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “text_editor/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “archive/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “charmap/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “calculator/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “spreadsheet/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “bittorent/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “document/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “webcam/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “burn/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “notes/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “disk_utility/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “tasks/command” in group “Session”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have group “Keymap”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “laptop_mode” in group “State”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “gnome” in group “Dbus”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “type” in group “Environment”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “ubuntu_menuproxy” in group “Environment”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “toolkit_integration” in group “Environment”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “gtk/overlay_scrollbar_disable” in group “Environment”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “qt/force_theme” in group “Environment”
-** Message: 02:51:38.795: settings.vala:540: Key file does not have key “qt/platform” in group “Environment”
-** Message: 02:51:38.795: settings.vala:462: Monitoring: /home/ubuntu/.config/lxsession/LXDE/desktop.conf
-** Message: 02:51:38.795: settings.vala:466: Desktop file is already in config home, do nothing
-** Message: 02:51:38.796: environement.vala:79: Exporting variable
-** Message: 02:51:38.796: environement.vala:80: desktop_environnement XDG_CURRENT_DESKTOP
-** Message: 02:51:38.796: environement.vala:177: custom_config :
-** Message: 02:51:38.796: environement.vala:178: config_dirs :/etc/xdg
-** Message: 02:51:38.796: environement.vala:179: confir_dirs not null, export : /etc/xdg
-** Message: 02:51:38.796: environement.vala:184: Exporting XDG_CONFIG_DIRS
-** Message: 02:51:38.796: environement.vala:218: custom_data :
-** Message: 02:51:38.796: environement.vala:219: data_dirs :/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg
-** Message: 02:51:38.796: environement.vala:220: data_dirs not null, export : /usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg
-** Message: 02:51:38.796: environement.vala:225: Exporting XDG_DATA_DIRS
-** Message: 02:51:38.796: utils.vala:68: User config used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
-** Message: 02:51:38.796: utils.vala:89: Final file used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
-** Message: 02:51:38.796: environement.vala:254: No entry in [Environment_variable]. Key file does not have group “Environment_variable”
+** Message: 14:09:31.214: environement.vala:58: Exporting primary_variable
+** Message: 14:09:31.214: environement.vala:59: desktop_environnement XDG_CURRENT_DESKTOP
+** Message: 14:09:31.214: environement.vala:150: confir_dirs is null, export : /etc/xdg
+** Message: 14:09:31.214: environement.vala:184: Exporting XDG_CONFIG_DIRS
+** Message: 14:09:31.214: environement.vala:191: data_dirs is null, export : /usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg
+** Message: 14:09:31.214: environement.vala:225: Exporting XDG_DATA_DIRS
+** Message: 14:09:31.214: utils.vala:68: User config used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 14:09:31.214: utils.vala:89: Final file used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “iGtk/ColorScheme” in group “GTK”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “windows_manager/extras” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “panel/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “dock/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “file_manager/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “desktop_manager/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “launcher_manager/autostart” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “composite_manager/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “im1/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “im2/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “widget1/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “notification/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “keybindings/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “im_manager/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “screensaver/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “power_manager/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “audio_manager/command” in group “Session”
+** Message: 14:09:31.214: settings.vala:540: Key file does not have key “workspace_manager/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “screenshot_manager/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “message_manager/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “upgrade_manager/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “updates_manager/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “updates_manager/timeout” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “crash_manager/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “crash_manager/dev_mode” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “crash_manager/timeout” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “upstart_user_session” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “proxy_manager/http” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “a11y/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “xrandr/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “network_gui/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “webbrowser/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “email/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “pdf_reader/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “video_player/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “audio_player/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “images_display/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “text_editor/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “archive/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “charmap/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “calculator/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “spreadsheet/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “bittorent/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “document/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “webcam/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “burn/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “notes/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “disk_utility/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “tasks/command” in group “Session”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have group “Keymap”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “laptop_mode” in group “State”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “gnome” in group “Dbus”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “type” in group “Environment”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “ubuntu_menuproxy” in group “Environment”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “toolkit_integration” in group “Environment”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “gtk/overlay_scrollbar_disable” in group “Environment”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “qt/force_theme” in group “Environment”
+** Message: 14:09:31.215: settings.vala:540: Key file does not have key “qt/platform” in group “Environment”
+** Message: 14:09:31.216: settings.vala:462: Monitoring: /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 14:09:31.216: settings.vala:466: Desktop file is already in config home, do nothing
+** Message: 14:09:31.216: environement.vala:79: Exporting variable
+** Message: 14:09:31.216: environement.vala:80: desktop_environnement XDG_CURRENT_DESKTOP
+** Message: 14:09:31.216: environement.vala:177: custom_config :
+** Message: 14:09:31.216: environement.vala:178: config_dirs :/etc/xdg
+** Message: 14:09:31.216: environement.vala:179: confir_dirs not null, export : /etc/xdg
+** Message: 14:09:31.216: environement.vala:184: Exporting XDG_CONFIG_DIRS
+** Message: 14:09:31.216: environement.vala:218: custom_data :
+** Message: 14:09:31.216: environement.vala:219: data_dirs :/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg
+** Message: 14:09:31.216: environement.vala:220: data_dirs not null, export : /usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg
+** Message: 14:09:31.216: environement.vala:225: Exporting XDG_DATA_DIRS
+** Message: 14:09:31.216: utils.vala:68: User config used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 14:09:31.216: utils.vala:89: Final file used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 14:09:31.216: environement.vala:254: No entry in [Environment_variable]. Key file does not have group “Environment_variable”
 
-** (lxsession:41): WARNING **: 02:51:38.796: process.vala:49: Failed to execute child process “xprop” (No such file or directory)
+** (lxsession:77): WARNING **: 14:09:31.217: process.vala:49: Failed to execute child process “xprop” (No such file or directory)
 
-** (lxsession:41): WARNING **: 02:51:38.796: process.vala:50: Error when launching xprop
+** (lxsession:77): WARNING **: 14:09:31.218: process.vala:50: Error when launching xprop
 
-** (lxsession:41): WARNING **: 02:51:38.797: process.vala:49: Failed to execute child process “dbus-launch” (No such file or directory)
+** (lxsession:77): WARNING **: 14:09:31.219: process.vala:49: Failed to execute child process “dbus-launch” (No such file or directory)
 
-** (lxsession:41): WARNING **: 02:51:38.797: process.vala:50: Error when launching dbus-launch
-** Message: 02:51:38.797: utils.vala:79: Config system location : /etc/xdg/lxsession/LXDE
-** Message: 02:51:38.797: utils.vala:85: System system path location : /etc/xdg/lxsession/LXDE/conffiles.conf
-** Message: 02:51:38.797: utils.vala:89: Final file used : /etc/xdg/lxsession/LXDE/conffiles.conf
-** Message: 02:51:38.797: options.vala:164: Activate xsettings_manager build-in
-** Message: 02:51:38.797: utils.vala:68: User config used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
-** Message: 02:51:38.797: utils.vala:89: Final file used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
-** Message: 02:51:38.799: app.vala:721: polkit separate
-** Message: 02:51:38.799: app.vala:721: polkit separate
-** Message: 02:51:38.800: app.vala:76: Launching lxpolkit 
-** Message: 02:51:38.800: utils.vala:68: User config used : /home/ubuntu/.config/lxsession/LXDE/autostart
-** Message: 02:51:38.800: utils.vala:89: Final file used : /home/ubuntu/.config/lxsession/LXDE/autostart
-** Message: 02:51:38.800: autostart.vala:42: Autostart path : /home/ubuntu/.config/lxsession/LXDE/autostart
-** Message: 02:51:38.801: app.vala:76: Launching lxpanel 
-** Message: 02:51:38.802: app.vala:76: Launching pcmanfm 
+** (lxsession:77): WARNING **: 14:09:31.219: process.vala:50: Error when launching dbus-launch
+** Message: 14:09:31.219: utils.vala:79: Config system location : /etc/xdg/lxsession/LXDE
+** Message: 14:09:31.219: utils.vala:85: System system path location : /etc/xdg/lxsession/LXDE/conffiles.conf
+** Message: 14:09:31.219: utils.vala:89: Final file used : /etc/xdg/lxsession/LXDE/conffiles.conf
+** Message: 14:09:31.219: options.vala:164: Activate xsettings_manager build-in
+** Message: 14:09:31.219: utils.vala:68: User config used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 14:09:31.219: utils.vala:89: Final file used : /home/ubuntu/.config/lxsession/LXDE/desktop.conf
+** Message: 14:09:31.223: app.vala:721: polkit separate
+** Message: 14:09:31.224: app.vala:721: polkit separate
+** Message: 14:09:31.225: app.vala:76: Launching lxpolkit 
+** Message: 14:09:31.225: utils.vala:68: User config used : /home/ubuntu/.config/lxsession/LXDE/autostart
+** Message: 14:09:31.225: utils.vala:89: Final file used : /home/ubuntu/.config/lxsession/LXDE/autostart
+** Message: 14:09:31.225: autostart.vala:42: Autostart path : /home/ubuntu/.config/lxsession/LXDE/autostart
+** Message: 14:09:31.227: app.vala:76: Launching lxpanel 
+** Message: 14:09:31.228: app.vala:76: Launching pcmanfm 
 
-** (lxsession:41): WARNING **: 02:51:38.802: app.vala:86: Failed to execute child process “xscreensaver” (No such file or directory)
+** (lxsession:77): WARNING **: 14:09:31.229: app.vala:86: Failed to execute child process “xscreensaver” (No such file or directory)
 
-** (lxsession:41): WARNING **: 02:51:38.802: app.vala:87: Error when launching xscreensaver
-** Message: 02:51:38.804: options.vala:107: Create build-in Clipboard
-** Message: 02:51:38.804: main.vala:442: Check keymap_mode (null)
-** Message: 02:51:38.805: app.vala:76: Launching /usr/bin/ssh-agent 
-SSH_AUTH_SOCK=/tmp/ssh-TJ1LjFeScS3C/agent.84; export SSH_AUTH_SOCK;
-SSH_AGENT_PID=88; export SSH_AGENT_PID;
-echo Agent pid 88;
+** (lxsession:77): WARNING **: 14:09:31.229: app.vala:87: Error when launching xscreensaver
+** Message: 14:09:31.230: options.vala:107: Create build-in Clipboard
+** Message: 14:09:31.232: main.vala:442: Check keymap_mode (null)
+** Message: 14:09:31.233: app.vala:76: Launching /usr/bin/ssh-agent 
+SSH_AUTH_SOCK=/tmp/ssh-DIg91NSkKA7J/agent.125; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=129; export SSH_AGENT_PID;
+echo Agent pid 129;
 
-** (lxsession:41): WARNING **: 02:51:38.809: main.vala:506: Could not acquire name
+** (lxsession:77): WARNING **: 14:09:31.237: main.vala:506: Could not acquire name
 
-** Message: 02:51:38.810: app.vala:130: /usr/bin/ssh-agent exit with this type of exit: 0
-** Message: 02:51:38.812: main.vala:41: lxpolkit is already running. Existing
-** Message: 02:51:38.814: app.vala:130: lxpolkit exit with this type of exit: 0
-** Message: 02:51:38.814: x-terminal-emulator has very limited support, consider choose another terminal
-** Message: 02:51:38.814: app.vala:139: Exit normal, don't reload
-** Message: 02:51:38.817: x-terminal-emulator has very limited support, consider choose another terminal
+** Message: 14:09:31.238: app.vala:130: /usr/bin/ssh-agent exit with this type of exit: 0
+** Message: 14:09:31.240: main.vala:41: lxpolkit is already running. Existing
+** Message: 14:09:31.242: app.vala:130: lxpolkit exit with this type of exit: 0
+** Message: 14:09:31.242: app.vala:139: Exit normal, don't reload
+** Message: 14:09:31.248: x-terminal-emulator has very limited support, consider choose another terminal
+** Message: 14:09:31.249: x-terminal-emulator has very limited support, consider choose another terminal
 
-** (pcmanfm:81): WARNING **: 02:51:38.821: The directory '~/Templates' doesn't exist, ignoring it
+** (lxpanel:119): WARNING **: 14:09:31.254: The directory '~/Templates' doesn't exist, ignoring it
 
-** (lxpanel:80): WARNING **: 02:51:38.824: The directory '~/Templates' doesn't exist, ignoring it
+** (pcmanfm:121): WARNING **: 14:09:31.255: The directory '~/Templates' doesn't exist, ignoring it
 
-(light-locker:86): dconf-WARNING **: 02:51:38.825: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+(light-locker:127): dconf-WARNING **: 14:09:31.260: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
 
-(light-locker:86): dconf-WARNING **: 02:51:38.826: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+(light-locker:127): dconf-WARNING **: 14:09:31.260: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
 
-(light-locker:86): dconf-WARNING **: 02:51:38.826: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+(light-locker:127): dconf-WARNING **: 14:09:31.260: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
 
-(light-locker:86): dconf-WARNING **: 02:51:38.826: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+(light-locker:127): dconf-WARNING **: 14:09:31.260: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
 
-(light-locker:86): dconf-WARNING **: 02:51:38.826: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+(light-locker:127): dconf-WARNING **: 14:09:31.260: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
 
-** (lxpanel:80): WARNING **: 02:51:38.852: lxpanel: can't load volume plugin
+** (lxpanel:119): WARNING **: 14:09:31.280: lxpanel: can't load volume plugin
 Openbox-Message: Unable to find a valid menu file "/var/lib/openbox/debian-menu.xml"
 
-(light-locker:86): dconf-WARNING **: 02:51:38.871: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+(light-locker:127): dconf-WARNING **: 14:09:31.310: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
 
-(light-locker:86): dconf-WARNING **: 02:51:38.871: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+(light-locker:127): dconf-WARNING **: 14:09:31.310: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
 
-(light-locker:86): dconf-WARNING **: 02:51:38.871: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+(light-locker:127): dconf-WARNING **: 14:09:31.310: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
 
-(light-locker:86): dconf-WARNING **: 02:51:38.871: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+(light-locker:127): dconf-WARNING **: 14:09:31.311: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
 
-(light-locker:86): dconf-WARNING **: 02:51:38.871: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+(light-locker:127): dconf-WARNING **: 14:09:31.311: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
 
-** (light-locker:86): WARNING **: 02:51:38.896: failed to register with the message bus
-lxterminal
-
-(lxterminal:154): Vte-WARNING **: 02:52:02.834: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
-
-(lxterminal:154): Vte-WARNING **: 02:52:02.834: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
-
-(lxpanel:80): Wnck-WARNING **: 02:52:02.855: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 02:56:24.672: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 02:56:24.693: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 02:56:27.189: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxterminal:154): Vte-WARNING **: 02:57:04.089: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
-
-(lxterminal:154): Vte-WARNING **: 02:57:04.089: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
-
-(lxpanel:80): Wnck-WARNING **: 02:57:04.097: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 02:57:04.126: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:11.724: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:22.366: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:22.660: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:29.756: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:29.878: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:30.598: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:31.855: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:51.995: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:52.102: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:54.376: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:54.971: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:58.599: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:58.718: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:58.881: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:59.009: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:01:59.437: Unhandled action type _OB_WM_ACTION_UNDECORATE
-
-(lxpanel:80): Wnck-WARNING **: 03:02:00.820: Unhandled action type _OB_WM_ACTION_UNDECORATE
-pcmanfm 
-
-(lxpanel:80): Wnck-WARNING **: 03:03:49.522: Unhandled action type _OB_WM_ACTION_UNDECORATE
+** (light-locker:127): WARNING **: 14:09:31.342: failed to register with the message bus
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":1"
+      after 2090 requests (2090 known processed) with 0 events remaining.
+pcmanfm: Fatal IO error 0 (Success) on X server :1.
+lxpanel: Fatal IO error 0 (Success) on X server :1.

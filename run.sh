@@ -10,14 +10,14 @@ docker run  \
 dockerpid=$!
 echo "docker container pid is $dockerpid"
 
-sleep 5
+sleep 7
 
 #xdg-open http://localhost:6080/vnc.html &
 xdg-open http://localhost:6080/vnc_auto.html &
 #xdg-open http://localhost:9090 &
 
 # pop a new terminal tab connected to the docker instance
-gnome-terminal --tab --title="DOCKER" -- bash -c 'docker exec -it `docker ps --format "{{.Names}}"` /bin/bash ; $SHELL '
+gnome-terminal --tab --title="DOCKER" -- bash -c 'docker exec -it `docker ps --format "{{.Names}}"` /bin/bash --rcfile /home/ubuntu/.bashrc  '
 
 trap "kill $dockerpid" INT
 
