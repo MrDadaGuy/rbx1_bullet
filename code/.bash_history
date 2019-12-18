@@ -90,3 +90,5 @@ rostopic echo /joint_states -n1
 ./test.py 
 ./test.py 
 ./test.py 
+./rbx1_bullet.py 
+roslaunch rbx1_moveit_config rbx1.launch 
