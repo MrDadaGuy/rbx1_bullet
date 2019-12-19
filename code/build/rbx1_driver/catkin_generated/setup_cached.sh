@@ -8,6 +8,9 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/ubuntu/devel/.private/rbx1_driver:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/ubuntu/devel/.private/rbx1_driver/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/ubuntu/devel/.private/rbx1_driver/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/ubuntu/build/rbx1_driver"
+export PYTHONPATH="/home/ubuntu/devel/.private/rbx1_driver/lib/python2.7/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/ubuntu/devel/.private/rbx1_driver/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/ubuntu/src/rbx1/rbx1_driver:$ROS_PACKAGE_PATH"

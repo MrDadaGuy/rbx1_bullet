@@ -1,0 +1,18 @@
+[  0%] Built target actionlib_msgs_generate_messages_py
+[  0%] Built target actionlib_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target actionlib_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target actionlib_msgs_generate_messages_cpp
+[  0%] Built target actionlib_msgs_generate_messages_lisp
+[  0%] Built target _rbx1_driver_generate_messages_check_deps_StepAction
+[  0%] Built target _rbx1_driver_generate_messages_check_deps_ResetAction
+[ 25%] Built target rbx1_driver_generate_messages_py
+[ 41%] Built target rbx1_driver_generate_messages_nodejs
+[ 58%] Built target rbx1_driver_generate_messages_lisp
+[ 83%] Built target rbx1_driver_generate_messages_eus
+[100%] Built target rbx1_driver_generate_messages_cpp
+[100%] Built target rbx1_driver_generate_messages

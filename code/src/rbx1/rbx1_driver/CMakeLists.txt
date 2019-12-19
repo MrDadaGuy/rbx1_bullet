@@ -6,13 +6,14 @@ project(rbx1_driver)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
+##ik_service is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   control_msgs
   rospy
   std_msgs
   trajectory_msgs
   actionlib_msgs
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -55,12 +56,12 @@ find_package(catkin REQUIRED COMPONENTS
 #   Message2.msg
 # )
 
-## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+# Generate services in the 'srv' folder
+ add_service_files(
+   FILES
+   ResetAction.srv
+   StepAction.srv
+ )
 
 ## Generate actions in the 'action' folder
 #add_action_files(DIRECTORY action FILES
@@ -68,11 +69,12 @@ find_package(catkin REQUIRED COMPONENTS
 #   JointTrajectory.action
 # )
 
-## Generate added messages and services with any dependencies listed here
-#generate_messages(
-#  DEPENDENCIES actionlib_msgs 
-#  control_msgs std_msgs trajectory_msgs
-#)
+# Generate added messages and services with any dependencies listed here
+generate_messages(
+  DEPENDENCIES 
+  actionlib_msgs 
+  std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##

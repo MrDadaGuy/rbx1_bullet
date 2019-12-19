@@ -3,6 +3,6 @@ prefix=/home/ubuntu/devel/.private/rbx1_driver
 Name: rbx1_driver
 Description: Description of rbx1_driver
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/ubuntu/devel/.private/rbx1_driver/include
 Libs: -L/home/ubuntu/devel/.private/rbx1_driver/lib 
 Requires: control_msgs rospy std_msgs trajectory_msgs actionlib_msgs

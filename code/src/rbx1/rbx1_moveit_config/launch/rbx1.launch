@@ -7,6 +7,7 @@
 
     <node name="rbx1_arm_controller" pkg="rbx1_driver" type="rbx1_arm_action_server.py" respawn="true" output="screen" unless="$(arg fake)" />
     <node name="rbx1_grip_controller" pkg="rbx1_driver" type="rbx1_grip_action_server.py" respawn="true" output="screen" unless="$(arg fake)" />
+    <node name="rbx1_ik_tool" pkg="rbx1_driver" type="action_listener.py" respawn="true" output="screen" />
 
     <include file="$(find rbx1_moveit_config)/launch/demo.launch" >
         <arg name="fake" value="$(arg fake)"/>

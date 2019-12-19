@@ -30,6 +30,7 @@ RUN apt-get update && apt-get install -y  \
         ros-melodic-moveit-ros-visualization \
         ros-melodic-moveit-planners-ompl \
         ros-melodic-moveit-fake-controller-manager \
+	ros-melodic-moveit-commander \
 	ros-melodic-rospy
 
 # clean up APT 
