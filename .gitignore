@@ -15,6 +15,8 @@ code/install/
 code/logs/
 code/.cache/
 code/.catkin_tools/
+code/.config
 code/.ros/
 code/.rviz/
 code/.thumbnails/
+
