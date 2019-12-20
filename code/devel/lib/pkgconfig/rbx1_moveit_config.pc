@@ -1,1 +1,0 @@
-/home/ubuntu/devel/.private/rbx1_moveit_config/lib/pkgconfig/rbx1_moveit_config.pc

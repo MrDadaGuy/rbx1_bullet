@@ -1,8 +1,0 @@
-prefix=/home/ubuntu/devel/.private/rbx1_urdf
-
-Name: rbx1_urdf
-Description: Description of rbx1_urdf
-Version: 1.0.0
-Cflags: 
-Libs: -L/home/ubuntu/devel/.private/rbx1_urdf/lib 
-Requires: 

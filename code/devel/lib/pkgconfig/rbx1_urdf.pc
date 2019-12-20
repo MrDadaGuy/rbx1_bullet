@@ -1,1 +1,0 @@
-/home/ubuntu/devel/.private/rbx1_urdf/lib/pkgconfig/rbx1_urdf.pc

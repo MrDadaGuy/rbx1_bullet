@@ -1,1 +1,0 @@
-/home/ubuntu/devel/.private/rbx1_urdf/share/rbx1_urdf/cmake/rbx1_urdfConfig.cmake

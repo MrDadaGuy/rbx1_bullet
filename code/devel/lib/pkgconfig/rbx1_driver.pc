@@ -1,1 +1,0 @@
-/home/ubuntu/devel/.private/rbx1_driver/lib/pkgconfig/rbx1_driver.pc
