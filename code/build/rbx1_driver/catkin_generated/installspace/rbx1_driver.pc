@@ -1,8 +1,0 @@
-prefix=/home/ubuntu/install
-
-Name: rbx1_driver
-Description: Description of rbx1_driver
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/ubuntu/install/lib 
-Requires: control_msgs rospy std_msgs trajectory_msgs actionlib_msgs

@@ -1,5 +1,0 @@
-rbx1/rbx1_driver
-/home/ubuntu/devel/.private/rbx1_driver/cmake.lock /home/ubuntu/devel/./cmake.lock
-/home/ubuntu/devel/.private/rbx1_driver/lib/pkgconfig/rbx1_driver.pc /home/ubuntu/devel/lib/pkgconfig/rbx1_driver.pc
-/home/ubuntu/devel/.private/rbx1_driver/share/rbx1_driver/cmake/rbx1_driverConfig.cmake /home/ubuntu/devel/share/rbx1_driver/cmake/rbx1_driverConfig.cmake
-/home/ubuntu/devel/.private/rbx1_driver/share/rbx1_driver/cmake/rbx1_driverConfig-version.cmake /home/ubuntu/devel/share/rbx1_driver/cmake/rbx1_driverConfig-version.cmake
