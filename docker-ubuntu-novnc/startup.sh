@@ -15,4 +15,6 @@ cd /web && ./run.py > /var/log/web.log 2>&1 &
 nginx -c /etc/nginx/nginx.conf
 exec /usr/bin/supervisord -n
 
+pip3 install -e /home/ubuntu/src/rbx1/rbx1_env 
+
 lxterminal &

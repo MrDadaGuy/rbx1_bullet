@@ -24,7 +24,7 @@ robot = moveit_commander.RobotCommander()
 scene = moveit_commander.PlanningSceneInterface()
 
 group_arm = moveit_commander.MoveGroupCommander("arm")
-group_gripper = moveit_commander.MoveGroupCommander("gripper")
+#group_gripper = moveit_commander.MoveGroupCommander("gripper")  # dont think we need this - we'll handle open/close without planner
 
 display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path', moveit_msgs.msg.DisplayTrajectory, queue_size=1)
 
@@ -141,9 +141,9 @@ class IK_Tool:
 
         return success
 
-    def step(self, x, y, z, gripper_pct_open):
+    def step(self, x, y, z, ox=0.5, oy=0.5, oz=-0.5, ow=-0.5, gripper_pct_open=1.0):
         print("Taking Step Action")
-        success = self._move_arm(x, y, z)
+        success = self._move_arm(x, y, z, ox, oy, oz, ow)
         
         self._move_gripper(gripper_pct_open)
         self.goal_update_pub.publish()

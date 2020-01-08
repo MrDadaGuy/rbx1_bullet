@@ -14,8 +14,10 @@ from . import rbx1
 import random
 import pybullet_data
 from pkg_resources import parse_version
-
-import traceback 
+import rospy
+from geometry_msgs.msg import Pose, Point, Quaternion
+from rbx1_driver.srv import ResetAction,ResetActionResponse
+from rbx1_driver.srv import StepAction,StepActionResponse
 
 maxSteps = 1000
 
@@ -79,18 +81,17 @@ class Rbx1GymEnv(gym.Env):
     p.resetSimulation()
     p.setPhysicsEngineParameter(numSolverIterations=150)
     p.setTimeStep(self._timeStep)
-    self.plane_id = p.loadURDF(os.path.join(self._urdfRoot, "plane.urdf"), [0, 0, -1])
+    self.plane_id = p.loadURDF(os.path.join(self._urdfRoot, "plane.urdf"), [0, 0, 0])
 
-    self.table_id = p.loadURDF(os.path.join(self._urdfRoot, "table/table.urdf"), 0.5000000, 0.00000, -.820000,
-               0.000000, 0.000000, 0.0, 1.0)
+#    self.table_id = p.loadURDF(os.path.join(self._urdfRoot, "table/table.urdf"), 0.5000000, 0.00000, -.820000, 0.000000, 0.000000, 0.0, 1.0)
 
-    self.ball_id = p.loadURDF(os.path.join(self._urdfRoot, "sphere2.urdf"), [1, 1, -1], globalScaling=0.1)
+    self.ball_id = p.loadURDF(os.path.join(self._urdfRoot, "sphere2.urdf"), [.3, .3, .025], globalScaling=0.05)
 
     xpos = 0.5 + 0.2 * random.random()
     ypos = 0 + 0.25 * random.random()
     ang = 3.1415925438 * random.random()
     orn = p.getQuaternionFromEuler([0, 0, ang])
-    self.blockUid = p.loadURDF(os.path.join(self._urdfRoot, "block.urdf"), xpos, ypos, -0.1,
+    self.blockUid = p.loadURDF(os.path.join(self._urdfRoot, "block.urdf"), xpos, ypos, 0,
                                orn[0], orn[1], orn[2], orn[3])
 
     p.setGravity(0, 0, -9.8)
@@ -113,28 +114,11 @@ class Rbx1GymEnv(gym.Env):
 
   def getExtendedObservation(self):
 
-    #camEyePos = [0.03,0.236,0.54]
-    #distance = 1.06
-    #pitch=-56
-    #yaw = 258
-    #roll=0
-    #upAxisIndex = 2
-    #camInfo = p.getDebugVisualizerCamera()
-    #print("width,height")
-    #print(camInfo[0])
-    #print(camInfo[1])
-    #print("viewMatrix")
-    #print(camInfo[2])
-    #print("projectionMatrix")
-    #print(camInfo[3])
-    #viewMat = camInfo[2]
-    #viewMat = p.computeViewMatrixFromYawPitchRoll(camEyePos,distance,yaw, pitch,roll,upAxisIndex)
     viewMat = [
         -0.5120397806167603, 0.7171027660369873, -0.47284144163131714, 0.0, -0.8589617609977722,
         -0.42747554183006287, 0.28186774253845215, 0.0, 0.0, 0.5504802465438843,
         0.8348482847213745, 0.0, 0.1925382763147354, -0.24935829639434814, -0.4401884973049164, 1.0
     ]
-    #projMatrix = camInfo[3]#[0.7499999403953552, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, -1.0000200271606445, -1.0, 0.0, 0.0, -0.02000020071864128, 0.0]
     projMatrix = [
         0.75, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, -1.0000200271606445, -1.0, 0.0, 0.0,
         -0.02000020071864128, 0.0
@@ -156,32 +140,27 @@ class Rbx1GymEnv(gym.Env):
     else:
       self._observation = np.array(np_img_arr)
 
-
     return self._observation
 
   def step(self, action):
-    if (self._isDiscrete):
-      dv = 0.01
-      dx = [0, -dv, dv, 0, 0, 0, 0][action]
-      dy = [0, 0, 0, -dv, dv, 0, 0][action]
-      da = [0, 0, 0, 0, 0, -0.1, 0.1][action]
-      f = 0.3
-      realAction = [dx, dy, -0.002, da, f]
-    else:
-      dv = 0.01
-      dx = action[0] * dv
-      dy = action[1] * dv
-      da = action[2] * 0.1
-      f = 0.3
-      realAction = [dx, dy, -0.002, da, f]
 
-    return self.step2(realAction)
+    print("\nSTEPPING:  {}\n".format(action))
+    pose = Pose()
+    pose.position = Point(action[0], action[1], action[2])
+    pose.orientation = Quaternion(0.5, 0.5, -0.5, -0.5)
 
-  def step2(self, action):
+    return self.step2(pose, action[3])
+
+  def step2(self, pose, gripper_pos):
     for i in range(self._actionRepeat):
-      self._rbx1.applyAction(action)
+#      self._rbx1.applyAction(action)
+      rospy.wait_for_service('rbx1/step')
+      moveit_step = rospy.ServiceProxy("rbx1/step", StepAction)
+      moveit_step(pose, gripper_pos)
+
       p.stepSimulation()
       if self._termination():
+        print("termination? uh why")
         break
       #self._observation = self.getExtendedObservation()
       self._envStepCounter += 1

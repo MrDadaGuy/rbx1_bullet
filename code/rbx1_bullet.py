@@ -90,7 +90,7 @@ def listener():
 
 def reset():
     bullet.resetBasePositionAndOrientation(rbx1_id, [0, 0, 0], [0, 0, 0, 1])
-    bullet.setJointMotorControlArray(rbx1_id, list(range(1, rbx1_num_joints -1)), bullet.POSITION_CONTROL, targetPositions=[0]* rbx1_num_joints)
+    bullet.setJointMotorControlArray(rbx1_id, list(range(1, rbx1_num_joints -1)), bullet.POSITION_CONTROL, targetPositions=[0] * rbx1_num_joints)
 
 
 if __name__ == '__main__':

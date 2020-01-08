@@ -8,11 +8,18 @@ import numpy as np
 import copy
 import math
 import pybullet_data
+import rospy
+from sensor_msgs.msg import JointState
 
 
 class Rbx1:
 
   def __init__(self, urdfRootPath=pybullet_data.getDataPath(), timeStep=0.01):
+
+    rospy.init_node('rbx1_bullet_client', anonymous=True)
+    rospy.Subscriber("/joint_states", JointState, self.joint_state_callback)
+
+    self.old_position = None
     self.urdfRootPath = urdfRootPath
     self.timeStep = timeStep
     self.maxVelocity = .35
@@ -48,17 +55,9 @@ class Rbx1:
   def reset(self):
     self.rbx1Uid = p.loadURDF("/home/ubuntu/src/rbx1/rbx1_urdf/urdf/rbx1_urdf.urdf", self.start_pos, self.start_orientation, useFixedBase=True)
     self.num_joints = p.getNumJoints(self.rbx1Uid)
-#    objects = p.loadSDF(os.path.join(self.urdfRootPath, "kuka_iiwa/kuka_with_gripper2.sdf"))
-#    self.rbx1Uid = objects[0]
-    #for i in range (p.getNumJoints(self.kukaUid)):
-    #  print(p.getJointInfo(self.kukaUid,i))
-    p.resetBasePositionAndOrientation(self.rbx1Uid, self.start_pos, self.start_orientation)
-    self.jointPositions = [0] * self.num_joints  
-    #self.jointPositions = [
-#        0.006418, 0.413184, -0.011401, -1.589317, 0.005379, 1.137684, -0.006539, 0.000048,
-#        -0.299912, 0.000000, -0.000043, 0.299960, 0.000000, -0.000200
-#    ]
 
+    p.resetBasePositionAndOrientation(self.rbx1Uid, self.start_pos, self.start_orientation)
+    self.jointPositions = [0, 0, 0, 1.57, 0, 1.57, 0, 0, 0, 0, 0, 0, 0, 0] 
 
     self.numJoints = p.getNumJoints(self.rbx1Uid)
     for jointIndex in range(self.numJoints):
@@ -69,8 +68,6 @@ class Rbx1:
                               targetPosition=self.jointPositions[jointIndex],
                               force=self.maxForce)
 
-#    self.trayUid = p.loadURDF(os.path.join(self.urdfRootPath, "tray/tray.urdf"), 0.640000,
-#                              0.075000, -0.190000, 0.000000, 0.000000, 1.000000, 0.000000)
     self.endEffectorPos = [0.537, 0.0, 0.5]
     self.endEffectorAngle = 0
 
@@ -85,6 +82,15 @@ class Rbx1:
         #print(jointInfo[1])
         self.motorNames.append(str(jointInfo[1]))
         self.motorIndices.append(i)
+
+  def joint_state_callback(self, data):
+    if data.position == self.old_position:
+        return
+    self.old_position = data.position
+    print("CHANGE, moving... {}".format(data.position))
+
+    # get the joint states position and move rbx1
+    p.setJointMotorControlArray(self.rbx1Uid, list(range(1, self.num_joints -1)), p.POSITION_CONTROL, targetPositions=data.position)
 
   def getActionDimension(self):
     if (self.useInverseKinematics):

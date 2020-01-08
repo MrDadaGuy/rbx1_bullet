@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   trajectory_msgs
+  geometry_msgs
   actionlib_msgs
   message_generation
 )
@@ -72,6 +73,7 @@ find_package(catkin REQUIRED COMPONENTS
 # Generate added messages and services with any dependencies listed here
 generate_messages(
   DEPENDENCIES 
+  geometry_msgs
   actionlib_msgs 
   std_msgs
 )
