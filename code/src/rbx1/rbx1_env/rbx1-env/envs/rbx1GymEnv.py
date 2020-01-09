@@ -55,6 +55,9 @@ class Rbx1GymEnv(gym.Env):
       p.resetDebugVisualizerCamera(1.3, 180, -41, [0.52, -0.2, -0.33])
     else:
       p.connect(p.DIRECT)
+    
+#    p.setRealTimeSimulation(True)  # no effect in DIRECT mode
+
     #timinglog = p.startStateLogging(p.STATE_LOGGING_PROFILE_TIMINGS, "rbx1Timings.json")
     self.seed()
     self.reset()
@@ -102,6 +105,16 @@ class Rbx1GymEnv(gym.Env):
     p.stepSimulation()
     self._observation = self.getExtendedObservation()   # TODO:  this is odd, it gets set in the called function !?
 #    return np.array(self._observation)
+
+    print("***************** NUM CONSTRAINTS ====  {}".format(p.getNumConstraints()))
+    for constraintIdx in range(p.getNumConstraints()):
+      print("Constraint idx: {} \nInfo:  {} \nState: {} \n".format(constraintIdx, p.getConstraintInfo(constraintIdx), p.getConstraintState(constraintIdx)))
+
+    print("***************** NUM JOINTS ====  {}".format(p.getNumJoints(self._rbx1.rbx1Uid)))
+    for jointIdx in range(p.getNumJoints(self._rbx1.rbx1Uid)):
+      print("Joint idx: {} \nInfo:  {} \nState: {} \n".format(jointIdx, p.getJointInfo(self._rbx1.rbx1Uid, jointIdx), p.getJointState(self._rbx1.rbx1Uid, jointIdx)))
+
+
     return self._observation
 
 
@@ -153,7 +166,7 @@ class Rbx1GymEnv(gym.Env):
 
   def step2(self, pose, gripper_pos):
     for i in range(self._actionRepeat):
-#      self._rbx1.applyAction(action)
+#      self._rbx1.applyAction(action)       # NOTE:  don't need to apply action, the ros subscriber will do this
       rospy.wait_for_service('rbx1/step')
       moveit_step = rospy.ServiceProxy("rbx1/step", StepAction)
       moveit_step(pose, gripper_pos)
