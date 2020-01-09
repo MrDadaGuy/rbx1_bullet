@@ -103,17 +103,20 @@ class Rbx1GymEnv(gym.Env):
     self._rbx1 = rbx1.Rbx1(urdfRootPath=self._urdfRoot, timeStep=self._timeStep)
     self._envStepCounter = 0
     p.stepSimulation()
+
     self._observation = self.getExtendedObservation()   # TODO:  this is odd, it gets set in the called function !?
 #    return np.array(self._observation)
 
     print("***************** NUM CONSTRAINTS ====  {}".format(p.getNumConstraints()))
     for constraintIdx in range(p.getNumConstraints()):
-      print("Constraint idx: {} \nInfo:  {} \nState: {} \n".format(constraintIdx, p.getConstraintInfo(constraintIdx), p.getConstraintState(constraintIdx)))
+      constraintID = p.getConstraintUniqueId(constraintIdx)
+      print("Constraint idx: {} \nInfo:  {} \nState: {} \n".format(constraintIdx, p.getConstraintInfo(constraintID), p.getConstraintState(constraintID)))
 
     print("***************** NUM JOINTS ====  {}".format(p.getNumJoints(self._rbx1.rbx1Uid)))
     for jointIdx in range(p.getNumJoints(self._rbx1.rbx1Uid)):
       print("Joint idx: {} \nInfo:  {} \nState: {} \n".format(jointIdx, p.getJointInfo(self._rbx1.rbx1Uid, jointIdx), p.getJointState(self._rbx1.rbx1Uid, jointIdx)))
 
+#    p.stepSimulation()
 
     return self._observation
 

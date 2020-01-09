@@ -3,7 +3,7 @@ docker run  \
     -v `pwd`/code:/home/ubuntu  \
     --rm \
     -p 11311:11311 -p 9090:9090 -p 5900:5900 -p 6080:6080 \
-    veggiebenz/rbx1_bullet:v3 &
+    veggiebenz/rbx1_bullet:v4 &
 
 # -u $(id -u):$(id -g)
 

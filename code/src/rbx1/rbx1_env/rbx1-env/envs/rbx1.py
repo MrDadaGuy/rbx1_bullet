@@ -11,7 +11,6 @@ import pybullet_data
 import rospy
 from sensor_msgs.msg import JointState
 
-
 class Rbx1:
 
   def __init__(self, urdfRootPath=pybullet_data.getDataPath(), timeStep=0.01):
@@ -89,10 +88,15 @@ class Rbx1:
     self.old_position = data.position
 
     print("*** NUM JOINTS = {}, LEN DATA POS = {}".format(self.num_joints, len(data.position)))
-    print("CHANGE, moving... {}".format(data.position))
+#    print("CHANGE, moving... {}".format(data.position))
+    joint_states = list(data.position) 
+    joint_states.insert(0, 0.0)
+    joint_states.insert(7, 0.0)
+
+    print("Doing JOINT STATES ... {}".format(joint_states))
 
     # get the joint states position and move rbx1
-    p.setJointMotorControlArray(self.rbx1Uid, list(range(1, self.num_joints -1)), p.POSITION_CONTROL, targetPositions=data.position)
+    p.setJointMotorControlArray(self.rbx1Uid, list(range(self.num_joints)), p.POSITION_CONTROL, targetPositions=joint_states)
     p.stepSimulation()
 
   def getActionDimension(self):
@@ -116,7 +120,7 @@ class Rbx1:
     return observation
 
   def applyAction(self, motorCommands):
-
+    raise RuntimeError("This should not be called, you naughty person!")
     #print ("self.numJoints")
     #print (self.numJoints)
     if (self.useInverseKinematics):
