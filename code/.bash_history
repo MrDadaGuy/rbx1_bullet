@@ -336,3 +336,30 @@ roslaunch rbx1_moveit_config rbx1.launch
 pwd
 pip3 install -e /home/ubuntu/src/rbx1/rbx1_env/
 sudo pip3 install -e /home/ubuntu/src/rbx1/rbx1_env/
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+sudo pip3 install -e /home/ubuntu/src/rbx1/rbx1_env/
+roslaunch rbx1_moveit_config rbx1.launch 
+rostopic echo /joint_states 
+ls
+ls
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+ls
+pwd
+ls
+ls
+pwd
+cd /
+ls
+cat startup.sh 

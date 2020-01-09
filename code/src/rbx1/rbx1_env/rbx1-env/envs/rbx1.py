@@ -56,7 +56,8 @@ class Rbx1:
     self.num_joints = p.getNumJoints(self.rbx1Uid)
 
     p.resetBasePositionAndOrientation(self.rbx1Uid, self.start_pos, self.start_orientation)
-    self.jointPositions = [0.0, 0.0, 0.0, 1.57, 0.0, 1.57, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] 
+#    self.jointPositions = [0.0, 0.0, 0.0, 1.57, 0.0, 1.57, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] 
+    self.jointPositions = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] 
 
     self.numJoints = p.getNumJoints(self.rbx1Uid)
     for jointIndex in range(self.numJoints):

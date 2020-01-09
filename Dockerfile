@@ -42,16 +42,16 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py && python3 ge
 
 # get the volumes / content and python components for novnc
 ADD docker-ubuntu-novnc/web /web/
-ADD docker-ubuntu-novnc/noVNC /noVNC/
-ADD docker-ubuntu-novnc/nginx.conf /etc/nginx/sites-enabled/default
-ADD docker-ubuntu-novnc/startup.sh /
-ADD docker-ubuntu-novnc/supervisord.conf /etc/supervisor/conf.d/
-ADD docker-ubuntu-novnc/doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 RUN /usr/local/bin/pip3 install -r /web/requirements.txt
 
 # get our project specific python components  -- removed jupyter tensorflow-gpu (b/c its baked in) matplotlib pandas   
 RUN pip3 install pybullet gym pyyaml rospkg PySide2
 
+ADD docker-ubuntu-novnc/noVNC /noVNC/
+ADD docker-ubuntu-novnc/nginx.conf /etc/nginx/sites-enabled/default
+ADD docker-ubuntu-novnc/startup.sh /
+ADD docker-ubuntu-novnc/supervisord.conf /etc/supervisor/conf.d/
+ADD docker-ubuntu-novnc/doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 
 EXPOSE 6080 11311 9090 5900
 WORKDIR /root
