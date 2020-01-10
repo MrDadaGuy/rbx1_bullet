@@ -6,10 +6,11 @@ os.sys.path.insert(0, parentdir)
 import pybullet as p
 import numpy as np
 import copy
-import math
+import math, time
 import pybullet_data
 import rospy
 from sensor_msgs.msg import JointState
+
 
 class Rbx1:
 
@@ -89,6 +90,10 @@ class Rbx1:
         return
     self.old_position = data.position
 
+    while p.getNumJoints(self.rbx1Uid) < 1:
+      print("* * * Waiting for robot model to get built * * * ")
+      time.sleep(0.0001)
+      
     print("*** NUM JOINTS = {}, LEN DATA POS = {}".format(self.num_joints, len(data.position)))
 #    print("CHANGE, moving... {}".format(data.position))
     joint_states = list(data.position) 

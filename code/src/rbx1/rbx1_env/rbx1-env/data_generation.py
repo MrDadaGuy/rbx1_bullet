@@ -50,7 +50,7 @@ def goToGoal(env, lastObs):
     print("object pos = {}, ee pos = {}".format(objectPos, eePos))
     print("OBJ ORIENTED GOAL = {}".format(object_oriented_goal))
 
-    object_oriented_goal[2] += 0.03         # first make the gripper go slightly above the object
+    object_oriented_goal[2] += 0.1         # first make the gripper go slightly above the object
 
     timeStep = 0        #count the total number of timesteps
     episodeObs.append(lastObs)
