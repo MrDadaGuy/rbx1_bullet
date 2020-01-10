@@ -56,7 +56,8 @@ def goToGoal(env, lastObs):
     episodeObs.append(lastObs)
 
     print("*** Moving gripper above object (ball)")
-    while np.linalg.norm(object_oriented_goal) >= 0.25 and timeStep <= env._max_episode_steps:
+    while np.linalg.norm(object_rel_pos) >= 0.25 and timeStep <= env._max_episode_steps:
+        print("OBJ REL POS = {}".format(object_rel_pos))
         env.render()
         action = [0, 0, 0, 0]
         object_oriented_goal = objectPos.copy() # object_rel_pos.copy()

@@ -363,3 +363,38 @@ pwd
 cd /
 ls
 cat startup.sh 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+./src/rbx1/rbx1_env/rbx1-env/data_generation.py 
+roslaunch rbx1_moveit_config rbx1.launch 
+roslaunch rbx1_moveit_config rbx1.launch 
+roslaunch rbx1_moveit_config rbx1.launch 
+roslaunch rbx1_moveit_config rbx1.launch 
+cat ~/.bashrc
+cat /root/.bashrc
+sudo cat /root/.bashrc
+cat /etc/bash.bashrc 
+leafpad /etc/bash.bashrc 
+cp /etc/bash.bashrc ~/Desktop/
