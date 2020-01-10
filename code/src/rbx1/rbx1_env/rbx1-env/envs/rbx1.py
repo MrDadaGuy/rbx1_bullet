@@ -56,8 +56,9 @@ class Rbx1:
     self.num_joints = p.getNumJoints(self.rbx1Uid)
 
     p.resetBasePositionAndOrientation(self.rbx1Uid, self.start_pos, self.start_orientation)
-#    self.jointPositions = [0.0, 0.0, 0.0, 1.57, 0.0, 1.57, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] 
-    self.jointPositions = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] 
+    # self.jointPositions = [0.0, 0.0, 0.0, 1.57, 0.0, 1.57, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] 
+    self.jointPositions = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    # self.jointPositions = [0.0, 0.7685161314608301, 0.9104433664346009, 1.3704663533844603, -1.007613956152018, -1.0148329298699956, -2.4464942290577576, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
     self.numJoints = p.getNumJoints(self.rbx1Uid)
     for jointIndex in range(self.numJoints):
@@ -98,7 +99,7 @@ class Rbx1:
 
     # get the joint states position and move rbx1
     p.setJointMotorControlArray(self.rbx1Uid, list(range(self.num_joints)), p.POSITION_CONTROL, targetPositions=joint_states)
-    p.stepSimulation()
+    # p.stepSimulation()
 
   def getActionDimension(self):
     if (self.useInverseKinematics):

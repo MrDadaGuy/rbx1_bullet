@@ -125,15 +125,25 @@ class IK_Tool:
         group_arm.set_start_state_to_current_state()
 
         # Reset robot to original pose and regenerate new world, new random position of world objects in unity
-        joint_state = JointState()
-        joint_state.header = Header()
-        joint_state.header.stamp = rospy.Time.now()
-        joint_state.name = self.grip_joints
-        joint_state.position = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        # joint_state = JointState()
+        # joint_state.header = Header()
+        # joint_state.header.stamp = rospy.Time.now()
+        # joint_state.name = self.grip_joints
+        #joint_state.position = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
         # moveit_robot_state = RobotState()
         # moveit_robot_state.joint_state = joint_state
         # group_arm.set_start_state(moveit_robot_state)
-        success = group_arm.go(joint_state)
+
+        joint_goal = group_arm.get_current_joint_values()
+        joint_goal[0] = 0
+        joint_goal[1] = 0
+        joint_goal[2] = 0
+        joint_goal[3] = 0
+        joint_goal[4] = 0
+        joint_goal[5] = 0
+
+        # success = group_arm.go(joint_state)
+        success = group_arm.go(joint_goal)
         group_arm.stop()
         
         self._move_gripper(0.0)

@@ -10,7 +10,7 @@ from gym.utils import seeding
 import numpy as np
 import time
 import pybullet as p
-from . import rbx1
+import rbx1
 import random
 import pybullet_data
 from pkg_resources import parse_version
@@ -56,7 +56,7 @@ class Rbx1GymEnv(gym.Env):
     else:
       p.connect(p.DIRECT)
     
-#    p.setRealTimeSimulation(True)  # no effect in DIRECT mode
+    p.setRealTimeSimulation(1)  # no effect in DIRECT mode
 
     #timinglog = p.startStateLogging(p.STATE_LOGGING_PROFILE_TIMINGS, "rbx1Timings.json")
     self.seed()
@@ -102,7 +102,7 @@ class Rbx1GymEnv(gym.Env):
     # load ROBOT MODEL
     self._rbx1 = rbx1.Rbx1(urdfRootPath=self._urdfRoot, timeStep=self._timeStep)
     self._envStepCounter = 0
-    p.stepSimulation()
+    # p.stepSimulation()
 
     self._observation = self.getExtendedObservation()   # TODO:  this is odd, it gets set in the called function !?
 #    return np.array(self._observation)
@@ -180,7 +180,7 @@ class Rbx1GymEnv(gym.Env):
       moveit_step = rospy.ServiceProxy("rbx1/step", StepAction)
       moveit_step(pose, gripper_pos)
 
-      p.stepSimulation()
+      # p.stepSimulation()
       if self._termination():
         print("termination? uh why")
         break
@@ -245,7 +245,7 @@ class Rbx1GymEnv(gym.Env):
       for i in range(100):
         graspAction = [0, 0, 0.0001, 0, fingerAngle]
         self._rbx1.applyAction(graspAction)
-        p.stepSimulation()
+        # p.stepSimulation()
         fingerAngle = fingerAngle - (0.3 / 100.)
         if (fingerAngle < 0):
           fingerAngle = 0
@@ -253,7 +253,7 @@ class Rbx1GymEnv(gym.Env):
       for i in range(1000):
         graspAction = [0, 0, 0.001, 0, fingerAngle]
         self._rbx1.applyAction(graspAction)
-        p.stepSimulation()
+        # p.stepSimulation()
         blockPos, blockOrn = p.getBasePositionAndOrientation(self.blockUid)
         if (blockPos[2] > 0.23):
           #print("BLOCKPOS!")
