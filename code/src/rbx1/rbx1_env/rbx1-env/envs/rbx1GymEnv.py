@@ -14,16 +14,15 @@ from . import rbx1
 import random
 import pybullet_data
 from pkg_resources import parse_version
-import rospy
-from geometry_msgs.msg import Pose, Point, Quaternion
-from rbx1_driver.srv import ResetAction,ResetActionResponse
-from rbx1_driver.srv import StepAction,StepActionResponse
+#import rospy
+#from geometry_msgs.msg import Pose, Point, Quaternion
+#from rbx1_driver.srv import ResetAction,ResetActionResponse
+#from rbx1_driver.srv import StepAction,StepActionResponse
 
 maxSteps = 1000
 
 RENDER_HEIGHT = 720
 RENDER_WIDTH = 960
-
 
 class Rbx1GymEnv(gym.Env):
   metadata = {'render.modes': ['human', 'rgb_array'], 'video.frames_per_second': 50}
@@ -34,8 +33,8 @@ class Rbx1GymEnv(gym.Env):
                isEnableSelfCollision=True,
                renders=False,
                isDiscrete=False, 
-               exposeCoords=False):
-    self._exposeCoords = exposeCoords
+               exposeCoords=False,
+               isRealTimeSim=False):
     self._timeStep = 1. / 240.
     self._urdfRoot = urdfRoot
     self._actionRepeat = actionRepeat
@@ -46,6 +45,8 @@ class Rbx1GymEnv(gym.Env):
     self._width = 341
     self._height = 256
     self._isDiscrete = isDiscrete
+    self._exposeCoords = exposeCoords
+    self._isRealTimeSim = isRealTimeSim
     self.terminated = 0
     self._p = p
     if self._renders:
@@ -80,13 +81,12 @@ class Rbx1GymEnv(gym.Env):
     self.viewer = None
 
   def reset(self):
+    print("##### ENV RESET #####")
     self.terminated = 0
     p.resetSimulation()
     p.setPhysicsEngineParameter(numSolverIterations=150)
     p.setTimeStep(self._timeStep)
     self.plane_id = p.loadURDF(os.path.join(self._urdfRoot, "plane.urdf"), [0, 0, 0])
-
-#    self.table_id = p.loadURDF(os.path.join(self._urdfRoot, "table/table.urdf"), 0.5000000, 0.00000, -.820000, 0.000000, 0.000000, 0.0, 1.0)
 
     self.ball_id = p.loadURDF(os.path.join(self._urdfRoot, "sphere2.urdf"), [.3, .3, .025], globalScaling=0.05)
 
@@ -94,35 +94,18 @@ class Rbx1GymEnv(gym.Env):
     ypos = 0 + 0.25 * random.random()
     ang = 3.1415925438 * random.random()
     orn = p.getQuaternionFromEuler([0, 0, ang])
-    self.blockUid = p.loadURDF(os.path.join(self._urdfRoot, "block.urdf"), xpos, ypos, 0,
+    self.cubeUid = p.loadURDF(os.path.join(self._urdfRoot, "cube_small.urdf"), xpos, ypos, 0,
                                orn[0], orn[1], orn[2], orn[3])
+#    self.blockUid = p.loadURDF(os.path.join(self._urdfRoot, "block.urdf"), xpos, ypos, 0,
+#                               orn[0], orn[1], orn[2], orn[3])
 
     p.setGravity(0, 0, -9.8)
 
     # load ROBOT MODEL
     self._rbx1 = rbx1.Rbx1(urdfRootPath=self._urdfRoot, timeStep=self._timeStep)
     self._envStepCounter = 0
-    # p.stepSimulation()
 
     self._observation = self.getExtendedObservation()   # TODO:  this is odd, it gets set in the called function !?
-#    return np.array(self._observation)
-
-    # NOTE:  RESET ROS!
-    print("########### RESETTING ROS ################")
-    rospy.wait_for_service('rbx1/reset')
-    moveit_reset = rospy.ServiceProxy("rbx1/reset", ResetAction)
-    moveit_reset()
-
-    # print("***************** NUM CONSTRAINTS ====  {}".format(p.getNumConstraints()))
-    # for constraintIdx in range(p.getNumConstraints()):
-    #   constraintID = p.getConstraintUniqueId(constraintIdx)
-    #   print("Constraint idx: {} \nInfo:  {} \nState: {} \n".format(constraintIdx, p.getConstraintInfo(constraintID), p.getConstraintState(constraintID)))
-
-    # print("***************** NUM JOINTS ====  {}".format(p.getNumJoints(self._rbx1.rbx1Uid)))
-    # for jointIdx in range(p.getNumJoints(self._rbx1.rbx1Uid)):
-    #   print("Joint idx: {} \nInfo:  {} \nState: {} \n".format(jointIdx, p.getJointInfo(self._rbx1.rbx1Uid, jointIdx), p.getJointState(self._rbx1.rbx1Uid, jointIdx)))
-
-#    p.stepSimulation()
 
     return self._observation
 
@@ -154,11 +137,11 @@ class Rbx1GymEnv(gym.Env):
     np_img_arr = np.reshape(rgb, (self._height, self._width, 4))
 
     if self._exposeCoords:
-      boxPos, boxOrn = p.getBasePositionAndOrientation(self.blockUid)
+      boxPos, boxOrn = p.getBasePositionAndOrientation(self.cubeUid)
       ballPos, ballOrn = p.getBasePositionAndOrientation(self.ball_id)
       eePos = p.getLinkState(self._rbx1.rbx1Uid, self._rbx1.rbx1EndEffectorIndex)
 
-      self._observation = {"rgb_image" : np_img_arr, "desired_goal" :  np.array(boxPos) , "observation" : np.array(ballPos) , "ee_pos" : np.array(eePos[0])}
+      self._observation = {"destination" :  np.array(boxPos) , "target" : np.array(ballPos) , "ee_pos" : np.array(eePos[0])}
     else:
       self._observation = np.array(np_img_arr)
 
@@ -166,20 +149,12 @@ class Rbx1GymEnv(gym.Env):
 
   def step(self, action):
 
-    print("STEPPING:  {}".format(action))
-    pose = Pose()
-    pose.position = Point(action[0], action[1], action[2])
-    pose.orientation = Quaternion(0.5, 0.5, -0.5, -0.5)
+    self._rbx1.step(action[:-1], action[-1:])
+    return self.step2(action[:-1], action[-1:])
 
-    return self.step2(pose, action[3])
 
   def step2(self, pose, gripper_pos):
     for i in range(self._actionRepeat):
-#      self._rbx1.applyAction(action)       # NOTE:  don't need to apply action, the ros subscriber will do this
-      rospy.wait_for_service('rbx1/step')
-      moveit_step = rospy.ServiceProxy("rbx1/step", StepAction)
-      moveit_step(pose, gripper_pos)
-
       # p.stepSimulation()
       if self._termination():
         print("termination? uh why")
@@ -198,7 +173,7 @@ class Rbx1GymEnv(gym.Env):
     reward = self._reward()
     #print("len=%r" % len(self._observation))
 
-    return np.array(self._observation), reward, done, {}
+    return self._observation, reward, done, {}     # note: previously had wrapped observcatoin in a numpy
 
   def render(self, mode='human', close=False):
     if mode != "rgb_array":
@@ -234,7 +209,7 @@ class Rbx1GymEnv(gym.Env):
       self._observation = self.getExtendedObservation()
       return True
     maxDist = 0.005
-    closestPoints = p.getClosestPoints(self.blockUid, self._rbx1.rbx1Uid, maxDist)   # was self._rbx1.trayUid
+    closestPoints = p.getClosestPoints(self.cubeUid, self._rbx1.rbx1Uid, maxDist)   # was self._rbx1.trayUid
 
     if (len(closestPoints)):  #(actualEndEffectorPos[2] <= -0.43):
       self.terminated = 1
@@ -254,7 +229,7 @@ class Rbx1GymEnv(gym.Env):
         graspAction = [0, 0, 0.001, 0, fingerAngle]
         self._rbx1.applyAction(graspAction)
         # p.stepSimulation()
-        blockPos, blockOrn = p.getBasePositionAndOrientation(self.blockUid)
+        blockPos, blockOrn = p.getBasePositionAndOrientation(self.cubeUid)
         if (blockPos[2] > 0.23):
           #print("BLOCKPOS!")
           #print(blockPos[2])
@@ -271,8 +246,8 @@ class Rbx1GymEnv(gym.Env):
   def _reward(self):
 
     #rewards is height of target object
-    blockPos, blockOrn = p.getBasePositionAndOrientation(self.blockUid)
-    closestPoints = p.getClosestPoints(self.blockUid, self._rbx1.rbx1Uid, 1000, -1,
+    blockPos, blockOrn = p.getBasePositionAndOrientation(self.cubeUid)
+    closestPoints = p.getClosestPoints(self.cubeUid, self._rbx1.rbx1Uid, 1000, -1,
                                        self._rbx1.rbx1EndEffectorIndex)
 
     reward = -1000

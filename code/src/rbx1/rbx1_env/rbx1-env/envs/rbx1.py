@@ -3,21 +3,20 @@ currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfram
 parentdir = os.path.dirname(os.path.dirname(currentdir))
 os.sys.path.insert(0, parentdir)
 
-import pybullet as p
+import math, time, copy
+from datetime import datetime
 import numpy as np
-import copy
-import math, time
+import pybullet as p
 import pybullet_data
-import rospy
-from sensor_msgs.msg import JointState
-
+#import rospy
+#from sensor_msgs.msg import JointState
 
 class Rbx1:
 
   def __init__(self, urdfRootPath=pybullet_data.getDataPath(), timeStep=0.01):
 
-    rospy.init_node('rbx1_bullet_client', anonymous=True)
-    rospy.Subscriber("/joint_states", JointState, self.joint_state_callback)
+#    rospy.init_node('rbx1_bullet_client', anonymous=True)
+#    rospy.Subscriber("/joint_states", JointState, self.joint_state_callback)
 
     self.old_position = None
     self.urdfRootPath = urdfRootPath
@@ -34,8 +33,12 @@ class Rbx1:
     self.rbx1EndEffectorIndex = 6
     self.rbx1GripperIndex = 7
 
-    self.start_pos = [0,0,0]
+    self.start_pos = [0, 0, -0.05]
     self.start_orientation = p.getQuaternionFromEuler([0,0,0])
+
+    self._prevPose=[0,0,0]
+    self._prevPose1=[0,0,0]
+    self._hasPrevPose = 0
 
     #lower limits for null space
     self.ll = [-.967, -2, -2.96, 0.19, -2.96, -2.09, -3.05]
@@ -53,6 +56,7 @@ class Rbx1:
     self.reset()
 
   def reset(self):
+    print("##### RBX1 RESET #####")
     self.rbx1Uid = p.loadURDF("/home/ubuntu/src/rbx1/rbx1_urdf/urdf/rbx1_urdf.urdf", self.start_pos, self.start_orientation, useFixedBase=True)
     self.num_joints = p.getNumJoints(self.rbx1Uid)
 
@@ -85,27 +89,6 @@ class Rbx1:
         self.motorNames.append(str(jointInfo[1]))
         self.motorIndices.append(i)
 
-  def joint_state_callback(self, data):
-    if data.position == self.old_position:
-        return
-    self.old_position = data.position
-
-    while p.getNumJoints(self.rbx1Uid) < 1:
-      print("* * * Waiting for robot model to get built * * * ")
-      time.sleep(0.0001)
-      
-    print("*** NUM JOINTS = {}, LEN DATA POS = {}".format(self.num_joints, len(data.position)))
-#    print("CHANGE, moving... {}".format(data.position))
-    joint_states = list(data.position) 
-    joint_states.insert(0, 0.0)
-    joint_states.insert(7, 0.0)
-
-    print("Doing JOINT STATES ... {}".format(joint_states))
-
-    # get the joint states position and move rbx1
-    p.setJointMotorControlArray(self.rbx1Uid, list(range(self.num_joints)), p.POSITION_CONTROL, targetPositions=joint_states)
-    # p.stepSimulation()
-
   def getActionDimension(self):
     if (self.useInverseKinematics):
       return len(self.motorIndices)
@@ -125,6 +108,40 @@ class Rbx1:
     observation.extend(list(euler))
 
     return observation
+
+
+  def step(self, pose, gripper_pos, isRealTimeSim=False):
+    t = 0
+    trailDuration = 15
+
+    if (isRealTimeSim):
+      dt = datetime.now()
+      t = (dt.second / 60.0) * 2.0 * (math.pi)
+      print(t)
+    else:
+      t = t + 0.01
+      time.sleep(0.01)
+
+    for i in range(1):
+
+      jointPoses = p.calculateInverseKinematics(self.rbx1Uid, self.rbx1EndEffectorIndex, pose)
+
+      #reset the joint state (ignoring all dynamics, not recommended to use during simulation)
+      for i in range (self.num_joints):
+        jointInfo = p.getJointInfo(self.rbx1Uid, i)
+        qIndex = jointInfo[3]
+        if qIndex > -1:
+          p.resetJointState(self.rbx1Uid, i, jointPoses[qIndex-7])
+
+    ls = p.getLinkState(self.rbx1Uid, self.rbx1EndEffectorIndex)
+    if (self._hasPrevPose):
+      p.addUserDebugLine(self._prevPose, pose, [0,0,0.3], 1, trailDuration)
+      p.addUserDebugLine(self._prevPose1, ls[4], [1,0,0], 1, trailDuration)
+    self._prevPose=pose
+    self._prevPose1=ls[4]
+    self._hasPrevPose = 1		    
+
+
 
   def applyAction(self, motorCommands):
     raise RuntimeError("This should not be called, you naughty person!")

@@ -57,4 +57,3 @@ RUN mv /web/bash.bashrc /etc/bash.bashrc
 EXPOSE 6080 11311 9090 5900
 WORKDIR /root
 ENTRYPOINT ["/startup.sh"]
-
