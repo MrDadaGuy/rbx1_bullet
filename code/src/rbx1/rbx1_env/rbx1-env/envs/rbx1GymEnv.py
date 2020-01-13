@@ -148,8 +148,9 @@ class Rbx1GymEnv(gym.Env):
     return self._observation
 
   def step(self, action):
+    print(">> GYM Stepping >> ", self._envStepCounter)
 
-    self._rbx1.step(action[:-1], action[-1:])
+    self._rbx1.step(action[:-1], action[-1:][0])     # the [0] strips the value out of the list
     return self.step2(action[:-1], action[-1:])
 
 
@@ -199,6 +200,10 @@ class Rbx1GymEnv(gym.Env):
     return rgb_array
 
   def _termination(self):
+    self._observation = self.getExtendedObservation()
+    return False
+    raise RuntimeError("GYM Termination called")
+
     #print (self._rbx1.endEffectorPos[2])
     state = p.getLinkState(self._rbx1.rbx1Uid, self._rbx1.rbx1EndEffectorIndex)
     actualEndEffectorPos = state[0]

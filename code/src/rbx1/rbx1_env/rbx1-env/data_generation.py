@@ -9,6 +9,7 @@ import numpy as np
 actions = []
 observations = []
 infos = []
+env = None
 
 def main():
     env = gym.make('rbx1-env:Rbx1GymEnv-v0', renders=True, exposeCoords=True)        # calls reset.  exposeCoords because I want to add the extra metadata like Fetchpick andPlace
@@ -29,9 +30,19 @@ def main():
     np.savez_compressed(fileName, acs=actions, obs=observations, info=infos) # save the file
 
 def get_obj_rel_pos(ee_pos, obj_pos):       # returns halfway point between ee and target
-    return (obj_pos + ee_pos) / 2.0
+#    interim_goal = (obj_pos + ee_pos) / 2.0
+    # TODO:  need to fix for width of object, should really do this in ENV where we have ref to ball itself
+    ball_diam = 0.05
+    obj_pos[0] += ball_diam if obj_pos[0] > 0 else -1.0 * ball_diam
+    obj_pos[1] += ball_diam if obj_pos[1] > 0 else -1.0 * ball_diam
+    interim_goal = ((obj_pos * 75) + (ee_pos * 25)) / 100
+    print("ee={}, obj={}, interim_goal={}".format(ee_pos, obj_pos, interim_goal))
+    return interim_goal
+
 
 def goToGoal(env, lastObs):
+
+    obj_z_offset = 0.1        # height above object that gripper should initially target
 
     env._max_episode_steps = 100    # NOTE:  put this here for now instead of on the ENV itself
 
@@ -46,17 +57,17 @@ def goToGoal(env, lastObs):
 
     object_oriented_goal = object_rel_pos.copy() # object_rel_pos.copy()
 
-    object_oriented_goal[2] += 0.05         # first make the gripper go slightly above the object
+    object_oriented_goal[2] += obj_z_offset         # first make the gripper go slightly above the object
 
     timeStep = 0        #count the total number of timesteps
     episodeObs.append(lastObs)
 
     print("*** Moving gripper above object (ball)")
-    while np.linalg.norm(object_rel_pos) >= 0.25 and timeStep <= env._max_episode_steps:
+    while np.linalg.norm(eePos[:1] - targetPos[:1]) >= 0.02 and timeStep <= env._max_episode_steps:     # basically checking on X and Y distance, disregard Z
         env.render()
         action = [0, 0, 0, 0]
         object_oriented_goal = object_rel_pos.copy() # object_rel_pos.copy()
-        object_oriented_goal[2] += 0.1 # was 0.03
+        object_oriented_goal[2] += obj_z_offset # was 0.03
 
         for i in range(len(object_oriented_goal)):
             action[i] = object_oriented_goal[i] # *0.1     # was 6
@@ -68,7 +79,6 @@ def goToGoal(env, lastObs):
         obsDataNew, reward, done, info = env.step(action)
 
         print("* OBSERVATION = {}".format(obsDataNew))
-        print("* TYPE(OBS) = {}".format(type(obsDataNew)))
 
         timeStep += 1
 
@@ -90,7 +100,7 @@ def goToGoal(env, lastObs):
         for i in range(len(object_rel_pos)):
             action[i] = object_rel_pos[i]      # *0.6       # was 6
 
-        action[len(action)-1] = -0.1
+        action[len(action)-1] = -0.05
 
         print(action)
 

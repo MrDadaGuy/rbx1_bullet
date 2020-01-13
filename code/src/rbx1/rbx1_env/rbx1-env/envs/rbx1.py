@@ -30,11 +30,11 @@ class Rbx1:
     self.useSimulation = 1
     self.useNullSpace = 21
     self.useOrientation = 1
-    self.rbx1EndEffectorIndex = 6
+    self.rbx1EndEffectorIndex = 6 #6
     self.rbx1GripperIndex = 7
 
     self.start_pos = [0, 0, -0.05]
-    self.start_orientation = p.getQuaternionFromEuler([0,0,0])
+    self.start_orientation = p.getQuaternionFromEuler([0, 0, math.pi])
 
     self._prevPose=[0,0,0]
     self._prevPose1=[0,0,0]
@@ -111,6 +111,10 @@ class Rbx1:
 
 
   def step(self, pose, gripper_pos, isRealTimeSim=False):
+
+    orn = [0.5, 0.5, -0.5, -0.5]
+
+    print(">>> RBX1 Stepping >>> ")
     t = 0
     trailDuration = 15
 
@@ -124,14 +128,30 @@ class Rbx1:
 
     for i in range(1):
 
-      jointPoses = p.calculateInverseKinematics(self.rbx1Uid, self.rbx1EndEffectorIndex, pose)
+      print("....doing IK..... for pose={} and grip={}".format(pose, gripper_pos))
+      jointPoses = p.calculateInverseKinematics(self.rbx1Uid, self.rbx1EndEffectorIndex, targetPosition=pose, targetOrientation=orn, residualThreshold=0.05)
+
+      jointPoses = list(jointPoses)
+      jointPoses.insert(0, 0.0)     # inserting 0.0 joint states for fixed joints 0 and 7
+      jointPoses.insert(7, 0.0)
+
+      gripperPose = (gripper_pos if gripper_pos < 1.0 else 0.999) * -(math.pi / 2)
+      gripperPoses = [gripperPose, gripperPose*-1] * 3
+
+      print("gripper poes = {}".format(gripperPoses))
+      jointPoses[-6:] = gripperPoses
+
+      print("jointPoses = {}".format(jointPoses))
+
+      p.setJointMotorControlArray(self.rbx1Uid, range(self.num_joints), controlMode=p.POSITION_CONTROL, targetPositions=jointPoses)
 
       #reset the joint state (ignoring all dynamics, not recommended to use during simulation)
-      for i in range (self.num_joints):
-        jointInfo = p.getJointInfo(self.rbx1Uid, i)
-        qIndex = jointInfo[3]
-        if qIndex > -1:
-          p.resetJointState(self.rbx1Uid, i, jointPoses[qIndex-7])
+#      for i in range (self.num_joints):
+#        jointInfo = p.getJointInfo(self.rbx1Uid, i)
+#        p.resetJointState(self.rbx1Uid, i, jointPoses[i])
+#        qIndex = jointInfo[3]
+#        if qIndex > -1:
+#          p.resetJointState(self.rbx1Uid, i, jointPoses[qIndex-7])
 
     ls = p.getLinkState(self.rbx1Uid, self.rbx1EndEffectorIndex)
     if (self._hasPrevPose):

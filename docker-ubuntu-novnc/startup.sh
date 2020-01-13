@@ -2,8 +2,6 @@
 
 mkdir -p /var/run/sshd
 
-touch /home/ubuntu/schozachlem.txt
-
 # create an ubuntu user
 # PASS=`pwgen -c -n -1 10`
 PASS=ubuntu
