@@ -50,7 +50,7 @@ def callback(data):
     print("CHANGE, moving... {}".format(data.position))
 
     # get the joint states position and move rbx1
-    bullet.setJointMotorControlArray(rbx1_id, list(range(1, rbx1_num_joints -1)), bullet.POSITION_CONTROL, targetPositions=data.position)
+    bullet.setJointMotorControlArray(rbx1_id, list(range(1, rbx1_num_joints -1)), bullet.POSITION_CONTROL, targetPositions=data.position, forces={0.5})
 
     bullet.resetDebugVisualizerCamera(1.3, 180, -41, [0.52, -0.2, -0.33])
 

@@ -138,10 +138,10 @@ class Rbx1:
       gripperPose = (gripper_pos if gripper_pos < 1.0 else 0.999) * -(math.pi / 2)
       gripperPoses = [gripperPose, gripperPose*-1] * 3
 
-      print("gripper poes = {}".format(gripperPoses))
+#      print("gripper poes = {}".format(gripperPoses))
       jointPoses[-6:] = gripperPoses
 
-      print("jointPoses = {}".format(jointPoses))
+#      print("jointPoses = {}".format(jointPoses))
 
       p.setJointMotorControlArray(self.rbx1Uid, range(self.num_joints), controlMode=p.POSITION_CONTROL, targetPositions=jointPoses)
 

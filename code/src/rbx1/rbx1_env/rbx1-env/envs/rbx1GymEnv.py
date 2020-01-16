@@ -80,6 +80,13 @@ class Rbx1GymEnv(gym.Env):
                                         dtype=np.uint8)
     self.viewer = None
 
+  def getRandomTransform(self):
+    xpos = 0.5 + 0.2 * random.random()
+    ypos = 0 + 0.25 * random.random()
+    ang = 3.1415925438 * random.random()
+    orn = p.getQuaternionFromEuler([0, 0, ang])
+    return (xpos, ypos, orn)
+
   def reset(self):
     print("##### ENV RESET #####")
     self.terminated = 0
@@ -88,14 +95,22 @@ class Rbx1GymEnv(gym.Env):
     p.setTimeStep(self._timeStep)
     self.plane_id = p.loadURDF(os.path.join(self._urdfRoot, "plane.urdf"), [0, 0, 0])
 
-    self.ball_id = p.loadURDF(os.path.join(self._urdfRoot, "sphere2.urdf"), [.3, .3, .025], globalScaling=0.05)
+#    xpos, ypos, orn = getRandomTransform()
+    xpos, ypos, orn = self.getRandomTransform()
+    self.ball_id = p.loadURDF(os.path.join(self._urdfRoot, "sphere_small.urdf"), [0.3, -0.3, 0.025])    # , globalScaling=0.05
+    p.changeDynamics(self.ball_id, -1, mass=0.001, spinningFriction=0.001, rollingFriction=0.001, linearDamping=0.0)
 
-    xpos = 0.5 + 0.2 * random.random()
-    ypos = 0 + 0.25 * random.random()
-    ang = 3.1415925438 * random.random()
-    orn = p.getQuaternionFromEuler([0, 0, ang])
-    self.cubeUid = p.loadURDF(os.path.join(self._urdfRoot, "cube_small.urdf"), xpos, ypos, 0,
-                               orn[0], orn[1], orn[2], orn[3])
+    xpos, ypos, orn = self.getRandomTransform()
+    self.mug_id = p.loadURDF(os.path.join("/home/ubuntu/src/rbx1/rbx1_env/rbx1-env/objects/mug/", "mug.urdf"), [0.3, 0.3, 0.025])    # , globalScaling=0.05
+
+#    self.sphere = p.createVisualShape(p.GEOM_SPHERE, rgbaColor=[1,0.5,0.5,1])
+#    p.resetBasePositionAndOrientation(self.sphere, [0.3, -0.3, 0.3], [0, 0, 0, 1])
+
+    print("BALL POS = {}".format(p.getBasePositionAndOrientation(self.ball_id)))
+
+    xpos, ypos, orn = self.getRandomTransform()
+#    self.cubeUid = p.loadURDF(os.path.join(self._urdfRoot, "cube_small.urdf"), xpos, ypos, 0,
+#                               orn[0], orn[1], orn[2], orn[3])
 #    self.blockUid = p.loadURDF(os.path.join(self._urdfRoot, "block.urdf"), xpos, ypos, 0,
 #                               orn[0], orn[1], orn[2], orn[3])
 
@@ -107,6 +122,7 @@ class Rbx1GymEnv(gym.Env):
 
     self._observation = self.getExtendedObservation()   # TODO:  this is odd, it gets set in the called function !?
 
+    self._info = {}
     return self._observation
 
 
@@ -137,11 +153,20 @@ class Rbx1GymEnv(gym.Env):
     np_img_arr = np.reshape(rgb, (self._height, self._width, 4))
 
     if self._exposeCoords:
-      boxPos, boxOrn = p.getBasePositionAndOrientation(self.cubeUid)
+      mugPos, mugOrn = p.getBasePositionAndOrientation(self.mug_id)
+      mugPos = np.array(mugPos)
+      mug_radius = 0.03
+      mugPos[0] += mug_radius if mugPos[0] > 0 else -mug_radius if mugPos[0] < 0 else 0   # NOTE:  need to acocunt for ball radius for some reason!?
+      mugPos[1] += mug_radius if mugPos[1] > 0 else -mug_radius if mugPos[1] < 0 else 0 
+
       ballPos, ballOrn = p.getBasePositionAndOrientation(self.ball_id)
+      ballPos = np.array(ballPos)
+      ball_radius = 0.03
+      ballPos[0] += ball_radius if ballPos[0] > 0 else -ball_radius if ballPos[0] < 0 else 0   # NOTE:  need to acocunt for ball radius for some reason!?
+      ballPos[1] += ball_radius if ballPos[1] > 0 else -ball_radius if ballPos[1] < 0 else 0 
       eePos = p.getLinkState(self._rbx1.rbx1Uid, self._rbx1.rbx1EndEffectorIndex)
 
-      self._observation = {"destination" :  np.array(boxPos) , "target" : np.array(ballPos) , "ee_pos" : np.array(eePos[0])}
+      self._observation = {"destination" :  np.array(mugPos) , "target" : np.array(ballPos) , "ee_pos" : np.array(eePos[0])}
     else:
       self._observation = np.array(np_img_arr)
 
@@ -151,6 +176,13 @@ class Rbx1GymEnv(gym.Env):
     print(">> GYM Stepping >> ", self._envStepCounter)
 
     self._rbx1.step(action[:-1], action[-1:][0])     # the [0] strips the value out of the list
+
+    # NOTE:  test for ball collision, put it in INFO
+    collisions = p.getContactPoints(self._rbx1.rbx1Uid, self.ball_id)
+    if collisions:
+      print("--------------WE HAVE COLLISIONS-----------")
+      self._info['ball_collision'] = True
+
     return self.step2(action[:-1], action[-1:])
 
 
@@ -174,7 +206,7 @@ class Rbx1GymEnv(gym.Env):
     reward = self._reward()
     #print("len=%r" % len(self._observation))
 
-    return self._observation, reward, done, {}     # note: previously had wrapped observcatoin in a numpy
+    return self._observation, reward, done, self._info     # note: previously had wrapped observcatoin in a numpy
 
   def render(self, mode='human', close=False):
     if mode != "rgb_array":
@@ -234,7 +266,7 @@ class Rbx1GymEnv(gym.Env):
         graspAction = [0, 0, 0.001, 0, fingerAngle]
         self._rbx1.applyAction(graspAction)
         # p.stepSimulation()
-        blockPos, blockOrn = p.getBasePositionAndOrientation(self.cubeUid)
+#        blockPos, blockOrn = p.getBasePositionAndOrientation(self.cubeUid)
         if (blockPos[2] > 0.23):
           #print("BLOCKPOS!")
           #print(blockPos[2])
@@ -251,8 +283,8 @@ class Rbx1GymEnv(gym.Env):
   def _reward(self):
 
     #rewards is height of target object
-    blockPos, blockOrn = p.getBasePositionAndOrientation(self.cubeUid)
-    closestPoints = p.getClosestPoints(self.cubeUid, self._rbx1.rbx1Uid, 1000, -1,
+    ballPos, ballOrn = p.getBasePositionAndOrientation(self.ball_id)
+    closestPoints = p.getClosestPoints(self.ball_id, self._rbx1.rbx1Uid, 1000, -1,
                                        self._rbx1.rbx1EndEffectorIndex)
 
     reward = -1000
@@ -261,7 +293,7 @@ class Rbx1GymEnv(gym.Env):
     if (numPt > 0):
       #print("reward:")
       reward = -closestPoints[0][8] * 10
-    if (blockPos[2] > 0.2):
+    if (ballPos[2] > 0.2):
       #print("grasped a block!!!")
       #print("self._envStepCounter")
       #print(self._envStepCounter)

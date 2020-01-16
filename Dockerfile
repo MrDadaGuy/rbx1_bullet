@@ -23,7 +23,7 @@ RUN apt-get install -y --no-install-recommends supervisor \
 # get project specific stuff
 RUN apt-get update && apt-get install -y  \
         ffmpeg \
-        ros-melodic-desktop-full \
+        ros-melodic-desktop \
         python-catkin-tools \
         ros-melodic-moveit-ros-planning \
         ros-melodic-moveit-ros-move-group \
