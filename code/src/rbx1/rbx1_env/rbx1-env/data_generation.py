@@ -2,6 +2,7 @@
 import sys
 import gym
 import numpy as np
+import time
 #import rbx1
 
 """Data generation for the case of a single block pick and place in rbx1 Env"""
@@ -32,10 +33,6 @@ def main():
 def get_obj_rel_pos(ee_pos, obj_pos, obj_bias_pct):       # returns a point between ee and target, modified by bias to object position
     obj_bias_pct = np.clip(obj_bias_pct, 0.0, 1.0)     # needs to be between zero and one.  obj_bias_pct is the amount that obj should be preferred in the calculation over EE pos
 #    interim_goal = (obj_pos + ee_pos) / 2.0
-    # TODO:  need to fix for width of object, should really do this in ENV where we have ref to ball itself
-#    ball_radius = 0.03  # radius of urdf sphere_small is 0.03
-#    newXpos = obj_pos[0] + ball_radius if obj_pos[0] > 0 else oj_pos[0] -ball_radius
-#    newYpos = obj_pos[1] + ball_radius if obj_pos[1] > 0 else obj_pos[1] -ball_radius
     interim_goal = ((obj_pos * obj_bias_pct) + (ee_pos * (1 - obj_bias_pct))) 
     print(">>>>>get_obj_rel_pos: EE={}, obj={}, interim_goal={}, bias={}".format(ee_pos, obj_pos, interim_goal, obj_bias_pct))
     return interim_goal
@@ -64,6 +61,7 @@ def goToGoal(env, lastObs):
     timeStep = 0        #count the total number of timesteps
     episodeObs.append(lastObs)
 
+    gripper_ball_grab = 0.425    # this is the value of gripper when closed on the ball
     step1_done = False
 
     print("\n\n*** STEP 1:  Moving gripper above object (ball)\n\n")
@@ -113,9 +111,10 @@ def goToGoal(env, lastObs):
     targetPos[2] += 0.175     # offset for radius of ball, and to account for gripper height 
     lower_amt = -0.05        # start with Z position what it was last loop, then decrement lower_amt from there
     grip_amt = grip_open
+    grip_count = 25      # NOTE:  how many steps after contact to keep closing gripper?
     object_rel_pos = get_obj_rel_pos(eePos, targetPos, 1)
-
-    while np.linalg.norm(object_rel_pos) >= 0.005 and timeStep <= env._max_episode_steps :
+    while True:
+#    while np.linalg.norm(object_rel_pos) >= 0.005 and timeStep <= env._max_episode_steps :
         env.render()
         action = [0, 0, 0, 0]
         for i in range(len(object_rel_pos)):
@@ -128,6 +127,7 @@ def goToGoal(env, lastObs):
         print("~~~ Move2 action = {}".format(action))
 
         obsDataNew, reward, done, info = env.step(action)
+        print("* OBSERVATION = {}".format(obsDataNew))
         timeStep += 1
 
         episodeAcs.append(action)
@@ -137,17 +137,24 @@ def goToGoal(env, lastObs):
 #        objectPos = obsDataNew['observation'][3:6]
 #        object_rel_pos = obsDataNew['observation'][6:9]
 #        targetPos = lastObs['target']      #[3:6]
-        eePos = lastObs['ee_pos']
+        eePos = obsDataNew['ee_pos']
         object_rel_pos = get_obj_rel_pos(eePos, targetPos, 1 + grip_amt)
 
         if 'ball_collision' in info:
             if info['ball_collision'] == True:
+                print("Closing gripper")
+                for i in range(10):
+                    # NOTE:  let's take a few more steps to make sure the gripper is tight on both sides
+                    action[3] = grip_amt - (0.01 * i)      # close grip incrementally
+                    obsDataNew, reward, done, info = env.step(action)
+                    print("* OBSERVATION = {}".format(obsDataNew))
+                grip_amt = action[3]
                 break
 
 
 
     print("\n*** STEP 2.5:  Moving gripper up a bit\n")
-    eePos = lastObs['ee_pos']
+    eePos = obsDataNew['ee_pos']
     object_rel_pos = get_obj_rel_pos(eePos, targetPos, 0)
     bias = 0.5
 #    while np.linalg.norm(goal - destination) >= 0.01 and timeStep <= env._max_episode_steps :
@@ -157,7 +164,7 @@ def goToGoal(env, lastObs):
         for i in range(len(object_rel_pos)):
             action[i] = (object_rel_pos)[i] #*6
 
-#        action[len(action)-1] = -0.05
+        action[3] = grip_amt        # from end of step 2.0 loop, grip_amt = action[3]
 
         obsDataNew, reward, done, info = env.step(action)
         timeStep += 1
@@ -172,9 +179,9 @@ def goToGoal(env, lastObs):
 #        destination[2] += 0.15      # NOTE:  adding some Z so it's actually above the thingy
 
         bias += 0.05
-        eePos = lastObs['ee_pos']
+        eePos = obsDataNew['ee_pos']
         targetPos[2:] = eePos[2:]
-        targetPos[2] == eePos[2] + 0.05       # NOTE: just move EE upwards a bit
+        targetPos[2] == eePos[2] + 0.1       # NOTE: just move EE upwards a bit
         object_rel_pos = get_obj_rel_pos(eePos, targetPos, bias)
 
 
@@ -190,7 +197,7 @@ def goToGoal(env, lastObs):
         for i in range(len(object_rel_pos)):
             action[i] = (object_rel_pos)[i] #*6
 
-#        action[len(action)-1] = -0.05
+        action[len(action)-1] = gripper_ball_grab
 
         obsDataNew, reward, done, info = env.step(action)
         timeStep += 1

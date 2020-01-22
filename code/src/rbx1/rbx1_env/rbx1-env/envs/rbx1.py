@@ -143,7 +143,7 @@ class Rbx1:
 
 #      print("jointPoses = {}".format(jointPoses))
 
-      p.setJointMotorControlArray(self.rbx1Uid, range(self.num_joints), controlMode=p.POSITION_CONTROL, targetPositions=jointPoses)
+      p.setJointMotorControlArray(self.rbx1Uid, range(self.num_joints), controlMode=p.POSITION_CONTROL, targetPositions=jointPoses, positionGains=[0.03] * self.num_joints)
 
       #reset the joint state (ignoring all dynamics, not recommended to use during simulation)
 #      for i in range (self.num_joints):
